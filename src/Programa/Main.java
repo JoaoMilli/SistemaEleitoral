@@ -17,7 +17,8 @@ public class Main {
 		
 		ListaPartidos listaPartido = new ListaPartidos();
 		listaPartido.getDados(path);
-		
+		listaCandidato.imprimeNumEleitos();	
+		listaCandidato.imprimeEleitos(listaPartido);
 	}
 
 }

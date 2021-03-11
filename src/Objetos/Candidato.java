@@ -1,5 +1,7 @@
 package Objetos;
 
+import java.util.Objects;
+
 public class Candidato {
 
 	private int numero;
@@ -50,6 +52,12 @@ public class Candidato {
 	}
 	public int getNumeroPartido() {
 		return this.numeroPartido;
+	}
+	void imprimeCandidato(String Partido) {
+		System.out.println(this.nome + " / " + this.nomeUrna + " (" + Partido + ", " + this.votosNominais + " votos)");
+	}
+	public boolean foiEleito() {
+		return (Objects.equals(this.getSituacao(), "Eleito"));
 	}
 
 }

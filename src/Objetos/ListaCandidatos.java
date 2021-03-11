@@ -41,4 +41,27 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 		}
 		
 	}
+	
+	public void imprimeNumEleitos() {
+		int i, n = 0;
+		for(i=0; i < this.size(); i++) {
+			if (this.get(i).foiEleito()) {
+				n++;
+			}
+		}
+		System.out.println("Número de vagas: " + n);
+	}
+	
+	public void imprimeEleitos(ListaPartidos listapartidos) {
+		int i, n=1;
+		System.out.println("Vereadores eleitos:");
+		for(i=0; i < this.size(); i++) {
+			Candidato candidato = this.get(i);
+			if (candidato.foiEleito()) {
+				String partido = listapartidos.getPartidoByNum(candidato.getNumeroPartido()).getNome();
+				System.out.print(n + " - ");
+				candidato.imprimeCandidato(partido);
+			}
+		}
+	}
 }

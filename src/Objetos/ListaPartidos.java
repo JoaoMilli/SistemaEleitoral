@@ -1,5 +1,6 @@
 package Objetos;
 import java.util.LinkedList;
+import java.util.Objects;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,5 +35,15 @@ public class ListaPartidos extends LinkedList<Partido> {
 		catch (IOException erro) {
 			System.out.println("Erro: " + erro.getMessage());
 		}
+	}
+	
+	public Partido getPartidoByNum(int num) {
+		int i;
+		for(i=0; i < this.size(); i++) {
+			if (Objects.equals(this.get(i).getNumero(), num)) {
+				return this.get(i);
+			}
+		}
+		return null;
 	}
 }
