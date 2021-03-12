@@ -49,7 +49,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 				n++;
 			}
 		}
-		System.out.println("Número de vagas: " + n);
+		System.out.println("NÃºmero de vagas: " + n);
 	}
 	
 	public void imprimeEleitos(ListaPartidos listapartidos) {
