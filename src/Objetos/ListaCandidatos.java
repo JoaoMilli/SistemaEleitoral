@@ -33,6 +33,8 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 				
 				Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, destino, numPart);
 				this.add(candidato);
+
+                //Incrementa o número de vagas contando os candidatos eleitos
                 if(candidato.foiEleito()){
                     setVagas(getVagas() + 1);
                 }

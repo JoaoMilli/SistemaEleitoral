@@ -27,8 +27,12 @@ public class Main {
 		listaCandidatos.imprimeNumEleitos();	
 		listaCandidatos.imprimeEleitos();
         ImprimeCandidatosMaisVotados(listaCandidatos);
+        ImprimeCandidatosPrejudicados(listaCandidatos);
+        ImprimeCandidatosBeneficiados(listaCandidatos);
 	}
+   
 
+    
     private static void ImprimeCandidatosMaisVotados(ListaCandidatos listaCandidatos) {
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
 
@@ -42,6 +46,35 @@ public class Main {
         }
         System.out.println();
     }
+
+    private static void ImprimeCandidatosPrejudicados(ListaCandidatos listaCandidatos) {
+        System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)");
+
+        //A lista já está ordenada
+        
+        int i;
+        for (i=0; i<ListaCandidatos.getVagas(); i++){
+            Candidato candidato = listaCandidatos.get(i);
+            if(!candidato.foiEleito()) 
+                System.out.println((i+1) + " - " + candidato);
+        }
+        System.out.println();
+    }
+
+    private static void ImprimeCandidatosBeneficiados(ListaCandidatos listaCandidatos) {
+        System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)");
+        
+        //A lista já está ordenada
+        
+        int i;
+        for (i=ListaCandidatos.getVagas(); i < listaCandidatos.size(); i++){
+            Candidato candidato = listaCandidatos.get(i);
+            if(candidato.foiEleito()) 
+                System.out.println((i+1) + " - " + candidato);
+        }
+        System.out.println();
+    }
+    
 
 }
 
