@@ -18,7 +18,7 @@ public class Partido {
 		return this.numero_partido;
 	}
 	
-	public int getVotos() {
+	int getVotos() {
 		return this.votos_legenda;
 	}
 	
