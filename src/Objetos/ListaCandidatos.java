@@ -18,8 +18,14 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 			String linha = br.readLine();
 			linha = br.readLine();
 			while (linha != null) {
-				
 				String[] vect = linha.split(",");
+
+                //Se o candidato não é válido, não adiciona à lista e passa para o próximo candidato
+                if(!vect[7].equals("Válido")){
+                    linha = br.readLine();
+                    continue;
+                }
+
 				Integer num = Integer.parseInt(vect[0]);
 				Integer votos = Integer.parseInt(vect[1]);
 				String situacao = vect[2];

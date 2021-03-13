@@ -37,10 +37,11 @@ public class Main {
         //Votos partidos
         //Primeiro e último
         ImprimeDistribuicaoIdade(listaCandidatos);
-	}
+        ImprimeDistribuicaoSexo(listaCandidatos);
+        ImprimeVotosValidos(listaCandidatos, listaPartidos);    
+    }
    
 
-    
 
     private static void ImprimeCandidatosMaisVotados(ListaCandidatos listaCandidatos) {
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
@@ -116,11 +117,56 @@ public class Main {
         System.out.printf("50 <= Idade < 60: %d (%.2f%%)\n", n50_60, p50_60);
         System.out.printf("60 <= Idade     : %d (%.2f%%)\n", nMaiorIgual60, pMaiorIgual60);
         
-
         System.out.println();
-
     }
     
+    private static void ImprimeDistribuicaoSexo(ListaCandidatos listaCandidatos) {
+        System.out.println("Eleitos, por sexo:");
+        int numeroM=0, numeroF=0;
+
+        int i;
+        for (i=0; i < listaCandidatos.size(); i++){
+            Candidato candidato = listaCandidatos.get(i);
+            if(candidato.foiEleito()){
+                if(candidato.getSexo().equals("M")){
+                    numeroM++;
+                } else {
+                    numeroF++;
+                }
+            }
+        }
+
+        //Imprimir o resultado:
+        System.out.printf("Feminino: %d (%.2f%%)\n", numeroF, 100*(float)numeroF/(numeroF+numeroM));
+        System.out.printf("Masculino: %d (%.2f%%)\n", numeroM, 100*(float)numeroM/(numeroF+numeroM));
+        
+        System.out.println();
+    }
+
+    
+    private static void ImprimeVotosValidos(ListaCandidatos listaCandidatos, ListaPartidos listaPartidos) {
+        int numVotosNominais=0, numVotosLegenda=0, numVotosTotais=0;
+
+        //Contagem votos nominais
+        int i;
+        for(i=0; i<listaCandidatos.size(); i++){
+            numVotosNominais += listaCandidatos.get(i).getVotosNominais();
+        }
+
+        //Contagem votos legenda
+        for(i=0; i<listaPartidos.size(); i++){
+            numVotosLegenda += listaPartidos.get(i).getVotos();
+        }
+
+        //Votos totais
+        numVotosTotais = numVotosLegenda + numVotosNominais;
+
+        //Imprime resultados
+        System.out.printf("Total de votos válidos: %d\n", numVotosTotais);
+        System.out.printf("Total de votos nominais: %d (%.2f%%)\n", numVotosNominais, 100*(float)numVotosNominais/numVotosTotais);
+        System.out.printf("Total de votos de Legenda: %d (%.2f%%)\n", numVotosLegenda, 100*(float)numVotosLegenda/numVotosTotais);
+        System.out.println();
+    }
 
 }
 
