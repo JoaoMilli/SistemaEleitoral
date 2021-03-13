@@ -41,6 +41,14 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 		}
 		
 	}
+
+    public void defineNomesPartidos(ListaPartidos listaPartidos){
+        int i;
+		for(i=0; i < this.size(); i++) {
+            //Pega o candidato i e salva o nome do partido ao qual ele pertence
+			this.get(i).setNomePartido(listaPartidos.getPartidoByNum(this.get(i).getNumeroPartido()).getNome());
+		}
+    }
 	
 	public void imprimeNumEleitos() {
 		int i, n = 0;

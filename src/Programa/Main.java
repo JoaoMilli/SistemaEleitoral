@@ -7,18 +7,24 @@ import java.io.File;
 public class Main {
 
 	public static void main(String[] args) {
-		
+        //Leitura dos Candidatos
 		File path = new File(args[0]);
 		
-		ListaCandidatos listaCandidato = new ListaCandidatos();
-		listaCandidato.getDados(path);	
+		ListaCandidatos listaCandidatos = new ListaCandidatos();
+		listaCandidatos.getDados(path);	
 		
+        //Leitura dos partidos
 		path = new File(args[1]);
 		
-		ListaPartidos listaPartido = new ListaPartidos();
-		listaPartido.getDados(path);
-		listaCandidato.imprimeNumEleitos();	
-		listaCandidato.imprimeEleitos(listaPartido);
+		ListaPartidos listaPartidos = new ListaPartidos();
+		listaPartidos.getDados(path);
+
+        //Varrer lista de candidatos e definir o nome do partido de cada
+        listaCandidatos.defineNomesPartidos(listaPartidos);
+
+
+		listaCandidatos.imprimeNumEleitos();	
+		listaCandidatos.imprimeEleitos(listaPartidos);
 	}
 
 }

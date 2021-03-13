@@ -13,6 +13,7 @@ public class Candidato {
 	private String dataNasc;
 	private String destinoVoto;
 	private int numeroPartido;
+    private String nomePartido;
 
 	public Candidato(int num, int votosNominais, String situacao, String nome, String nomeUrna, String sexo, String dataNasc, String destinoVoto, int numeroPartido) {
 		this.numero = num;
@@ -26,7 +27,10 @@ public class Candidato {
 		this.numeroPartido = numeroPartido;
 	}
 	
-	public int getNumero() {
+	public String getNomePartido() {
+        return nomePartido;
+    }
+    public int getNumero() {
 		return this.numero;
 	}
 	public int getVotosNominais() {
@@ -53,6 +57,11 @@ public class Candidato {
 	public int getNumeroPartido() {
 		return this.numeroPartido;
 	}
+
+    public void setNomePartido(String nomePartido) {
+        this.nomePartido = nomePartido;
+    }
+    
 	void imprimeCandidato(String Partido) {
 		System.out.println(this.nome + " / " + this.nomeUrna + " (" + Partido + ", " + this.votosNominais + " votos)");
 	}
