@@ -12,7 +12,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 
     private static int vagas = 0;
 
-	public void getDados(File path) {
+	public void getDados(File path, String dataEleicao) {
 			try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
 			
 			String linha = br.readLine();
@@ -26,12 +26,13 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 				String nome = vect[3];
 				String nomeUrna = vect[4];
 				String sexo = vect[5];
-				String dataNasc = vect[6];
+				Data dataNasc = new Data(vect[6]);
+                int idade = dataNasc.anosPassados(new Data(dataEleicao));
 				String destino = vect[7];
 				Integer numPart = Integer.parseInt(vect[8]);
 				
 				
-				Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, destino, numPart);
+				Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
 				this.add(candidato);
 
                 //Incrementa o número de vagas contando os candidatos eleitos
@@ -87,7 +88,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 		for(i=0; i < this.size(); i++) {
 			Candidato candidato = this.get(i);
 			if (candidato.foiEleito()) {
-				System.out.println(n + " - " + candidato);
+				System.out.println(n + " - " + candidato + candidato.getIdade());
                 n++;
 			}
 		}

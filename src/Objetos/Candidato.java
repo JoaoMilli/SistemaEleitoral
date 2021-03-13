@@ -10,12 +10,13 @@ public class Candidato implements Comparable<Candidato> {
 	private String nome;
 	private String nomeUrna;
 	private String sexo;
-	private String dataNasc;
+	private Data dataNasc;
+    private int idade;
 	private String destinoVoto;
 	private int numeroPartido;
     private String nomePartido;
 
-	public Candidato(int num, int votosNominais, String situacao, String nome, String nomeUrna, String sexo, String dataNasc, String destinoVoto, int numeroPartido) {
+	public Candidato(int num, int votosNominais, String situacao, String nome, String nomeUrna, String sexo, Data dataNasc, int idade, String destinoVoto, int numeroPartido) {
 		this.numero = num;
 		this.votosNominais = votosNominais;
 		this.situacao = situacao;
@@ -23,6 +24,7 @@ public class Candidato implements Comparable<Candidato> {
 		this.nomeUrna = nomeUrna;
 		this.sexo = sexo;
 		this.dataNasc = dataNasc;
+        this.idade = idade;
 		this.destinoVoto = destinoVoto;
 		this.numeroPartido = numeroPartido;
 	}
@@ -48,9 +50,12 @@ public class Candidato implements Comparable<Candidato> {
 	public String getSexo() {
 		return this.sexo;
 	}
-	public String getDataNasc() {
+	public Data getDataNasc() {
 		return this.dataNasc;
 	}
+    public int getIdade() {
+        return idade;
+    }
 	public String getDestinoVoto() {
 		return this.destinoVoto;
 	}
