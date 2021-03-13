@@ -2,7 +2,7 @@ package Objetos;
 
 import java.util.Objects;
 
-public class Candidato {
+public class Candidato implements Comparable<Candidato> {
 
 	private int numero;
 	private int votosNominais;
@@ -69,6 +69,20 @@ public class Candidato {
     @Override
     public String toString() {
         return this.nome + " / " + this.nomeUrna + " (" + this.nomePartido + ", " + this.votosNominais + " votos)";
+    }
+
+    @Override
+    public int compareTo(Candidato o) {
+        if(this.getVotosNominais() > o.getVotosNominais()){
+            //Se tiver mais votos, retorna que é menor, para ser inserido mais para o ínicio da lista
+            return -1;
+        }
+        if(this.getVotosNominais() < o.getVotosNominais()){
+            //Se tiver menos votos, retorna que é maior, para ser inserido mais para o final da lista
+            return 1;
+        }
+        //Se for igual, retorna 0
+        return 0;
     }
 
 }

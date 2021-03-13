@@ -10,6 +10,8 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 	
 	private static final long serialVersionUID = 1L;
 
+    private static int vagas = 0;
+
 	public void getDados(File path) {
 			try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
 			
@@ -31,6 +33,9 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 				
 				Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, destino, numPart);
 				this.add(candidato);
+                if(candidato.foiEleito()){
+                    setVagas(getVagas() + 1);
+                }
 				
 				linha = br.readLine();
 			}	
@@ -41,6 +46,19 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 		}
 		
 	}
+
+    public static int getVagas() {
+        return vagas;
+    }
+
+    public static void setVagas(int vagas) {
+        ListaCandidatos.vagas = vagas;
+    }
+
+
+
+
+
 
     public void defineNomesPartidos(ListaPartidos listaPartidos){
         int i;
@@ -58,6 +76,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 			}
 		}
 		System.out.println("Número de vagas: " + n);
+        System.out.println();
 	}
 	
 	public void imprimeEleitos() {
@@ -67,7 +86,9 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 			Candidato candidato = this.get(i);
 			if (candidato.foiEleito()) {
 				System.out.println(n + " - " + candidato);
+                n++;
 			}
 		}
+        System.out.println();
 	}
 }
