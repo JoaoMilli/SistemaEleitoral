@@ -24,7 +24,7 @@ public class Main {
 
 
 		listaCandidatos.imprimeNumEleitos();	
-		listaCandidatos.imprimeEleitos(listaPartidos);
+		listaCandidatos.imprimeEleitos();
 	}
 
 }

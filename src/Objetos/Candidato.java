@@ -61,12 +61,14 @@ public class Candidato {
     public void setNomePartido(String nomePartido) {
         this.nomePartido = nomePartido;
     }
-    
-	void imprimeCandidato(String Partido) {
-		System.out.println(this.nome + " / " + this.nomeUrna + " (" + Partido + ", " + this.votosNominais + " votos)");
-	}
+
 	public boolean foiEleito() {
 		return (Objects.equals(this.getSituacao(), "Eleito"));
 	}
+
+    @Override
+    public String toString() {
+        return this.nome + " / " + this.nomeUrna + " (" + this.nomePartido + ", " + this.votosNominais + " votos)";
+    }
 
 }
