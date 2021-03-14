@@ -58,11 +58,6 @@ public class ListaCandidatos extends LinkedList<Candidato> {
         ListaCandidatos.vagas = vagas;
     }
 
-
-
-
-
-
     public void defineNomesPartidos(ListaPartidos listaPartidos){
         int i;
 		for(i=0; i < this.size(); i++) {
@@ -71,24 +66,13 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 		}
     }
 	
-	public void imprimeNumEleitos() {
-		int i, n = 0;
-		for(i=0; i < this.size(); i++) {
-			if (this.get(i).foiEleito()) {
-				n++;
-			}
-		}
-		System.out.println("Número de vagas: " + n);
-        System.out.println();
-	}
-	
 	public void imprimeEleitos() {
 		int i, n=1;
 		System.out.println("Vereadores eleitos:");
 		for(i=0; i < this.size(); i++) {
 			Candidato candidato = this.get(i);
 			if (candidato.foiEleito()) {
-				System.out.println(n + " - " + candidato + candidato.getIdade());
+				System.out.println(n + " - " + candidato);
                 n++;
 			}
 		}

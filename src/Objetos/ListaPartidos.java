@@ -46,4 +46,11 @@ public class ListaPartidos extends LinkedList<Partido> {
 		}
 		return null;
 	}
+
+	public void setPartidosEleitos(ListaCandidatos lista){
+		int i;
+		for(i=0; i < this.size(); i++){			
+			this.get(i).setEleitos(lista);
+		}
+	}
 }

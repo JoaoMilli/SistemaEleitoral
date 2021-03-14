@@ -27,14 +27,16 @@ public class Main {
 
         //Varrer lista de candidatos e definir o nome do partido de cada
         listaCandidatos.defineNomesPartidos(listaPartidos);
+        listaPartidos.setPartidosEleitos(listaCandidatos);
 
-
-		listaCandidatos.imprimeNumEleitos();	
+		int n = ListaCandidatos.getVagas();
+        System.out.println("Número de vagas: " + n);
+        System.out.println();
 		listaCandidatos.imprimeEleitos();
         ImprimeCandidatosMaisVotados(listaCandidatos);
         ImprimeCandidatosPrejudicados(listaCandidatos);
         ImprimeCandidatosBeneficiados(listaCandidatos);
-        //Votos partidos
+        ImprimePartidos(listaPartidos);
         //Primeiro e último
         ImprimeDistribuicaoIdade(listaCandidatos);
 	}
@@ -82,6 +84,19 @@ public class Main {
                 System.out.println((i+1) + " - " + candidato);
         }
         System.out.println();
+    }
+
+
+    private static void ImprimePartidos(ListaPartidos listaPartidos){
+        listaPartidos.sort(null);
+        System.out.println("Votação dos partidos e número de candidatos eleitos:");
+        int i, n = 1;
+        for (i=0; i < listaPartidos.size(); i++){
+            System.out.println(n + " - " + listaPartidos.get(i).toString());
+            n++;
+        }
+        System.out.println();
+
     }
 
 
