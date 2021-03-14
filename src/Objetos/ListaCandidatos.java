@@ -31,15 +31,16 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 				String destino = vect[7];
 				Integer numPart = Integer.parseInt(vect[8]);
 				
-				
-				Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
-				this.add(candidato);
+				if(destino.equals("Válido")) {
+					Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
+					this.add(candidato);
 
-                //Incrementa o número de vagas contando os candidatos eleitos
-                if(candidato.foiEleito()){
-                    setVagas(getVagas() + 1);
-                }
-				
+					//Incrementa o número de vagas contando os candidatos eleitos
+					if(candidato.foiEleito()){
+						setVagas(getVagas() + 1);
+					}
+				}
+
 				linha = br.readLine();
 			}	
 			

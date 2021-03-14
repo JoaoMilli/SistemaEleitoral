@@ -6,6 +6,7 @@ import Objetos.Comparador;
 import Objetos.ListaCandidatos;
 import java.io.File;
 import java.util.Collections;
+import java.util.Formatter;
 
 
 public class Main {
@@ -42,6 +43,7 @@ public class Main {
         ImprimePartidos(listaPartidos);
         ImprimePrimeiroeUltimo(listaPartidos);
         ImprimeDistribuicaoIdade(listaCandidatos);
+        ImprimeVotosTotais(listaPartidos);
 	}
    
 
@@ -155,6 +157,25 @@ public class Main {
 
     }
     
+    private static void ImprimeVotosTotais(ListaPartidos listaPartidos){
+        int i, votosTotais = 0, totaisNominais = 0, totaisLegenda = 0;
+        float porcentoNominal, porcentoLegenda;
+        for (i=0; i < listaPartidos.size(); i++){
+            totaisNominais += listaPartidos.get(i).getVotosNominais();
+            totaisLegenda += listaPartidos.get(i).getVotos();
+        }
+        votosTotais = totaisNominais + totaisLegenda;
 
+        porcentoNominal = 100*((float)totaisNominais / (float)votosTotais);
+        porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
+
+        Formatter fmt = new Formatter();
+        fmt.format("Total de votos válidos: %d\nTotal de votos nominais: %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
+        String string = fmt.out().toString();
+        fmt.close();
+
+        System.out.println(string);
+
+    }
 }
 
