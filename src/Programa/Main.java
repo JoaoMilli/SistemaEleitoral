@@ -1,8 +1,11 @@
 package Programa;
 import Objetos.ListaPartidos;
+import Objetos.Partido;
 import Objetos.Candidato;
+import Objetos.Comparador;
 import Objetos.ListaCandidatos;
 import java.io.File;
+import java.util.Collections;
 
 
 public class Main {
@@ -37,7 +40,7 @@ public class Main {
         ImprimeCandidatosPrejudicados(listaCandidatos);
         ImprimeCandidatosBeneficiados(listaCandidatos);
         ImprimePartidos(listaPartidos);
-        //Primeiro e último
+        ImprimePrimeiroeUltimo(listaPartidos);
         ImprimeDistribuicaoIdade(listaCandidatos);
 	}
    
@@ -99,6 +102,22 @@ public class Main {
 
     }
 
+    private static void ImprimePrimeiroeUltimo(ListaPartidos listaPartidos){
+        Collections.sort(listaPartidos, new Comparador());
+        System.out.println("Primeiro e último colocados de cada partido:");
+        int i, n = 1;
+        for (i=0; i < listaPartidos.size(); i++){
+            Partido partido = listaPartidos.get(i);
+            Candidato maisVotado = partido.getmaisVotado();
+            Candidato menosVotado = partido.getmenosVotado();
+            if (maisVotado != null || menosVotado != null) {
+                System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " votos) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " votos)");
+                n++;
+            }
+    
+        }
+        System.out.println();
+    }
 
     private static void ImprimeDistribuicaoIdade(ListaCandidatos listaCandidatos) {
         System.out.println("Eleitos, por faixa etária (na data da eleição):");

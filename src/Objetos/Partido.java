@@ -20,24 +20,36 @@ public class Partido implements Comparable<Partido>{
 	}
 	
 	
-	int getNumero() {
+	public int getNumero() {
 		return this.numero_partido;
 	}
 	
-	int getVotos() {
+	public int getVotos() {
 		return this.votos_legenda;
 	}
 	
-	int getNEleitos() {
+	public int getNEleitos() {
 		return this.n_eleitos;
 	}
 
-	String getNome() {
+	public String getNome() {
 		return this.nome_partido;
 	}
 	
-	String getSigla() {
+	public String getSigla() {
 		return this.sigla_partido;
+	}
+
+	public int getVotosNominais() {
+		return this.votos_nominais;
+	}
+
+	public Candidato getmaisVotado(){
+		return this.mais_votado;
+	}
+
+	public Candidato getmenosVotado(){
+		return this.menos_votado;
 	}
 
 	void setEleitos(ListaCandidatos lista){
