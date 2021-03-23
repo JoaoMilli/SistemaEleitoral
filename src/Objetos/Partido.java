@@ -95,8 +95,18 @@ public class Partido implements Comparable<Partido>{
 	@Override
     public String toString() {
 		int totalVotos = this.votos_legenda + this.votos_nominais;
-		String linha = this.nome_partido + " - " + this.numero_partido + ", " + totalVotos + " votos (" + this.votos_nominais + " nominais e " + this.votos_legenda + " de legenda), " + this.n_eleitos;
-        if (this.n_eleitos > 1) return linha + " candidatos eleitos";
+		String linha;
+		if (this.votos_nominais == 1 && totalVotos == 1){
+			linha = this.nome_partido + " - " + this.numero_partido + ", " + totalVotos + " voto (" + this.votos_nominais + " nominal e " + this.votos_legenda + " de legenda), " + this.n_eleitos;
+		}
+		else if (this.votos_nominais == 1){
+			linha = this.nome_partido + " - " + this.numero_partido + ", " + totalVotos + " votos (" + this.votos_nominais + " nominal e " + this.votos_legenda + " de legenda), " + this.n_eleitos;
+		}
+		else{
+			linha = this.nome_partido + " - " + this.numero_partido + ", " + totalVotos + " votos (" + this.votos_nominais + " nominais e " + this.votos_legenda + " de legenda), " + this.n_eleitos;
+		}
+		
+        if (this.n_eleitos != 1) return linha + " candidatos eleitos";
 		else return linha + " candidato eleito";
     }
 

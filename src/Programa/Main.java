@@ -36,7 +36,7 @@ public class Main {
 		int n = ListaCandidatos.getVagas();
         System.out.println("Número de vagas: " + n);
         System.out.println();
-		listaCandidatos.imprimeEleitos();
+		imprimeEleitos(listaCandidatos);
         ImprimeCandidatosMaisVotados(listaCandidatos);
         ImprimeCandidatosPrejudicados(listaCandidatos);
         ImprimeCandidatosBeneficiados(listaCandidatos);
@@ -113,8 +113,22 @@ public class Main {
             Candidato maisVotado = partido.getmaisVotado();
             Candidato menosVotado = partido.getmenosVotado();
             if (maisVotado != null || menosVotado != null) {
-                System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " votos) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " votos)");
-                n++;
+                if (maisVotado.getVotosNominais() == 1 && menosVotado.getVotosNominais() == 1){
+                    System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " voto) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " voto)");
+                    n++;
+                }
+                else if (maisVotado.getVotosNominais() == 1){
+                    System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " voto) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " votos)");
+                    n++;
+                }
+                else if (menosVotado.getVotosNominais() == 1){
+                    System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " votos) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " voto)");
+                    n++;
+                }
+                else {
+                    System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " votos) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " votos)");
+                    n++;
+                }
             }
     
         }
@@ -177,5 +191,18 @@ public class Main {
         System.out.println(string);
 
     }
+
+    private static void imprimeEleitos( ListaCandidatos listaCandidatos) {
+		int i, n=1;
+		System.out.println("Vereadores eleitos:");
+		for(i=0; i < listaCandidatos.size(); i++) {
+			Candidato candidato = listaCandidatos.get(i);
+			if (candidato.foiEleito()) {
+				System.out.println(n + " - " + candidato);
+                n++;
+			}
+		}
+        System.out.println();
+	}
 }
 

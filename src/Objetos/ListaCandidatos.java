@@ -66,17 +66,4 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 			this.get(i).setNomePartido(listaPartidos.getPartidoByNum(this.get(i).getNumeroPartido()).getNome());
 		}
     }
-	
-	public void imprimeEleitos() {
-		int i, n=1;
-		System.out.println("Vereadores eleitos:");
-		for(i=0; i < this.size(); i++) {
-			Candidato candidato = this.get(i);
-			if (candidato.foiEleito()) {
-				System.out.println(n + " - " + candidato);
-                n++;
-			}
-		}
-        System.out.println();
-	}
 }
