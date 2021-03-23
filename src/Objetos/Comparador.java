@@ -7,6 +7,7 @@ import java.util.Comparator;
 public class Comparador implements Comparator<Partido> {
 
     public int compare(Partido a, Partido b){
+        if(a.getmaisVotado() == null || b.getmaisVotado() == null) return 1;
         if(a.getmaisVotado().getVotosNominais() > b.getmaisVotado().getVotosNominais()) return -1;
         else return 1;
     }

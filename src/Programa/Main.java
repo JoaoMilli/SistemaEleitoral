@@ -1,17 +1,34 @@
 package Programa;
-import Objetos.ListaPartidos;
-import Objetos.Partido;
+import java.io.File;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.io.UnsupportedEncodingException;
+import java.util.Collections;
+import java.util.Formatter;
+import java.util.Locale;
+
 import Objetos.Candidato;
 import Objetos.Comparador;
 import Objetos.ListaCandidatos;
-import java.io.File;
-import java.util.Collections;
-import java.util.Formatter;
+import Objetos.ListaPartidos;
+import Objetos.Partido;
 
 
 public class Main {
 
+    private static Locale locale;
 	public static void main(String[] args) {
+        try {
+            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            System.out.println("VM does not support mandatory encoding UTF-8");
+        }
+        
+        //Definindo o locale para os printf's
+        locale = new Locale("pt", "BR");
+
+        //Verifica se todos os argumentos foram passados
         if(args.length < 3){
             System.out.println("Erro! É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)");
             return;
@@ -112,7 +129,7 @@ public class Main {
             Partido partido = listaPartidos.get(i);
             Candidato maisVotado = partido.getmaisVotado();
             Candidato menosVotado = partido.getmenosVotado();
-            if (maisVotado != null || menosVotado != null) {
+            if (maisVotado != null && menosVotado != null) {
                 if (maisVotado.getVotosNominais() == 1 && menosVotado.getVotosNominais() == 1){
                     System.out.println(n + " - " + partido.getNome() + " - " + partido.getNumero() + ", " +  maisVotado.getNomeUrna() + " (" + maisVotado.getNumero() + ", " + maisVotado.getVotosNominais() + " voto) / " + menosVotado.getNomeUrna() + " (" + menosVotado.getNumero() + ", " + menosVotado.getVotosNominais() + " voto)");
                     n++;
@@ -160,11 +177,11 @@ public class Main {
         pMaiorIgual60 = 100*(float)nMaiorIgual60 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
 
         //Imprimir o resultado:
-        System.out.printf("      Idade < 30: %d (%.2f%%)\n", nMenor30, pMenor30);
-        System.out.printf("30 <= Idade < 40: %d (%.2f%%)\n", n30_40, p30_40);
-        System.out.printf("40 <= Idade < 50: %d (%.2f%%)\n", n40_50, p40_50);
-        System.out.printf("50 <= Idade < 60: %d (%.2f%%)\n", n50_60, p50_60);
-        System.out.printf("60 <= Idade     : %d (%.2f%%)\n", nMaiorIgual60, pMaiorIgual60);
+        System.out.printf(locale, "      Idade < 30: %d (%.2f%%)\n", nMenor30, pMenor30);
+        System.out.printf(locale, "30 <= Idade < 40: %d (%.2f%%)\n", n30_40, p30_40);
+        System.out.printf(locale, "40 <= Idade < 50: %d (%.2f%%)\n", n40_50, p40_50);
+        System.out.printf(locale, "50 <= Idade < 60: %d (%.2f%%)\n", n50_60, p50_60);
+        System.out.printf(locale, "60 <= Idade     : %d (%.2f%%)\n", nMaiorIgual60, pMaiorIgual60);
         
 
         System.out.println();
@@ -184,7 +201,7 @@ public class Main {
         porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
 
         Formatter fmt = new Formatter();
-        fmt.format("Total de votos válidos: %d\nTotal de votos nominais: %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
+        fmt.format(locale, "Total de votos válidos: %d\nTotal de votos nominais: %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
         String string = fmt.out().toString();
         fmt.close();
 
