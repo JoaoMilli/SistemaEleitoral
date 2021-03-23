@@ -13,7 +13,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
     private static int vagas = 0;
 
 	public void getDados(File path, String dataEleicao) {
-			try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
 			
 			String linha = br.readLine();
 			linha = br.readLine();
@@ -43,7 +43,7 @@ public class ListaCandidatos extends LinkedList<Candidato> {
 
 				linha = br.readLine();
 			}	
-			
+			br.close();
 		}
 		catch (IOException erro) {
 			System.out.println("Erro: " + erro.getMessage());

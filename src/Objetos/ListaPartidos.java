@@ -30,6 +30,8 @@ public class ListaPartidos extends LinkedList<Partido> {
 				
 				linha = br.readLine();
 			}	
+
+            br.close();
 			
 		}
 		catch (IOException erro) {
