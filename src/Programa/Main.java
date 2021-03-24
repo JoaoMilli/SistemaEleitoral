@@ -18,13 +18,7 @@ import Objetos.Partido;
 public class Main {
 
     private static Locale locale;
-	public static void main(String[] args) {
-        try {
-            System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, "UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            System.out.println("VM does not support mandatory encoding UTF-8");
-        }
-        
+	public static void main(String[] args) {    
         //Definindo o locale para os printf's
         locale = new Locale("pt", "BR");
 
