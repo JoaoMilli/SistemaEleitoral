@@ -1,5 +1,7 @@
 package Objetos;
 
+import java.util.LinkedList;
+
 public class Partido implements Comparable<Partido>{
 	private int numero_partido;
 	private int votos_legenda;
@@ -52,7 +54,7 @@ public class Partido implements Comparable<Partido>{
 		return this.menos_votado;
 	}
 
-	void setEleitos(ListaCandidatos lista){
+	public void setEleitos(LinkedList<Candidato> lista){
 		//Insere o mais votado, menos votado, o total de votos nominais e o numero de eleitos de um partido
 		int i, n = 0;
 		for(i=0; i < lista.size(); i++){

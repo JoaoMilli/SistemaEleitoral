@@ -1,17 +1,22 @@
 package Programa;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileDescriptor;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Collections;
 import java.util.Formatter;
+import java.util.LinkedList;
 import java.util.Locale;
+import java.util.Objects;
 
 import Objetos.Candidato;
 import Objetos.Comparador;
-import Objetos.ListaCandidatos;
-import Objetos.ListaPartidos;
+import Objetos.Data;
 import Objetos.Partido;
 
 
@@ -28,29 +33,30 @@ public class Main {
             return;
         }
 
+
         //Leitura dos Candidatos
 		File path = new File(args[0]);
+
+        LinkedList<Candidato> listaCandidatos = new LinkedList<Candidato>();
 		
-		ListaCandidatos listaCandidatos = new ListaCandidatos();
-		listaCandidatos.getDados(path, args[2]);	
+        int nvagas = getDadosCandidatos(listaCandidatos, path, args[2]);
 		
         //Leitura dos partidos
 		path = new File(args[1]);
 		
-		ListaPartidos listaPartidos = new ListaPartidos();
-		listaPartidos.getDados(path);
+		LinkedList<Partido> listaPartidos = new LinkedList<Partido>();
+        getDadosPartidos(path, listaPartidos);
 
         //Varrer lista de candidatos e definir o nome do partido de cada
-        listaCandidatos.defineNomesPartidos(listaPartidos);
-        listaPartidos.setPartidosEleitos(listaCandidatos);
+        defineNomesPartidos(listaCandidatos , listaPartidos);
+        setPartidosEleitos(listaPartidos, listaCandidatos);
 
-		int n = ListaCandidatos.getVagas();
-        System.out.println("Número de vagas: " + n);
+        System.out.println("Número de vagas: " + nvagas);
         System.out.println();
 		imprimeEleitos(listaCandidatos);
-        ImprimeCandidatosMaisVotados(listaCandidatos);
-        ImprimeCandidatosPrejudicados(listaCandidatos);
-        ImprimeCandidatosBeneficiados(listaCandidatos);
+        ImprimeCandidatosMaisVotados(listaCandidatos, nvagas);
+        ImprimeCandidatosPrejudicados(listaCandidatos, nvagas);
+        ImprimeCandidatosBeneficiados(listaCandidatos, nvagas);
         ImprimePartidos(listaPartidos);
         ImprimePrimeiroeUltimo(listaPartidos);
         ImprimeDistribuicaoIdade(listaCandidatos);
@@ -60,27 +66,27 @@ public class Main {
 
     
 
-    private static void ImprimeCandidatosMaisVotados(ListaCandidatos listaCandidatos) {
+    private static void ImprimeCandidatosMaisVotados( LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
 
         //Ordena a lista de candidatos com os mais votados primeiro
         listaCandidatos.sort(null);
         
         int i;
-        for (i=0; i<ListaCandidatos.getVagas(); i++){
+        for (i=0; i<nvagas; i++){
             Candidato candidato = listaCandidatos.get(i);
             System.out.println((i+1) + " - " + candidato);
         }
         System.out.println();
     }
 
-    private static void ImprimeCandidatosPrejudicados(ListaCandidatos listaCandidatos) {
+    private static void ImprimeCandidatosPrejudicados(LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)");
 
         //A lista já está ordenada
         
         int i;
-        for (i=0; i<ListaCandidatos.getVagas(); i++){
+        for (i=0; i<nvagas; i++){
             Candidato candidato = listaCandidatos.get(i);
             if(!candidato.foiEleito()) 
                 System.out.println((i+1) + " - " + candidato);
@@ -88,13 +94,13 @@ public class Main {
         System.out.println();
     }
 
-    private static void ImprimeCandidatosBeneficiados(ListaCandidatos listaCandidatos) {
+    private static void ImprimeCandidatosBeneficiados(LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)");
         
         //A lista já está ordenada
         
         int i;
-        for (i=ListaCandidatos.getVagas(); i < listaCandidatos.size(); i++){
+        for (i=nvagas; i < listaCandidatos.size(); i++){
             Candidato candidato = listaCandidatos.get(i);
             if(candidato.foiEleito()) 
                 System.out.println((i+1) + " - " + candidato);
@@ -103,7 +109,7 @@ public class Main {
     }
 
 
-    private static void ImprimePartidos(ListaPartidos listaPartidos){
+    private static void ImprimePartidos(LinkedList<Partido> listaPartidos){
         listaPartidos.sort(null);
         System.out.println("Votação dos partidos e número de candidatos eleitos:");
         int i, n = 1;
@@ -115,7 +121,7 @@ public class Main {
 
     }
 
-    private static void ImprimePrimeiroeUltimo(ListaPartidos listaPartidos){
+    private static void ImprimePrimeiroeUltimo(LinkedList<Partido> listaPartidos){
         Collections.sort(listaPartidos, new Comparador());
         System.out.println("Primeiro e último colocados de cada partido:");
         int i, n = 1;
@@ -146,7 +152,7 @@ public class Main {
         System.out.println();
     }
 
-    private static void ImprimeDistribuicaoIdade(ListaCandidatos listaCandidatos) {
+    private static void ImprimeDistribuicaoIdade(LinkedList<Candidato> listaCandidatos) {
         System.out.println("Eleitos, por faixa etária (na data da eleição):");
         int nMenor30=0, n30_40=0, n40_50=0, n50_60=0, nMaiorIgual60=0;
         float pMenor30, p30_40, p40_50, p50_60, pMaiorIgual60;
@@ -182,7 +188,7 @@ public class Main {
 
     }
     
-    private static void ImprimeVotosTotais(ListaPartidos listaPartidos){
+    private static void ImprimeVotosTotais(LinkedList<Partido> listaPartidos){
         int i, votosTotais = 0, totaisNominais = 0, totaisLegenda = 0;
         float porcentoNominal, porcentoLegenda;
         for (i=0; i < listaPartidos.size(); i++){
@@ -203,7 +209,7 @@ public class Main {
 
     }
 
-    private static void imprimeEleitos( ListaCandidatos listaCandidatos) {
+    private static void imprimeEleitos(LinkedList<Candidato> listaCandidatos) {
 		int i, n=1;
 		System.out.println("Vereadores eleitos:");
 		for(i=0; i < listaCandidatos.size(); i++) {
@@ -214,6 +220,102 @@ public class Main {
 			}
 		}
         System.out.println();
+	}
+
+    public static int getDadosCandidatos(LinkedList<Candidato> listaCandidatos, File path, String dataEleicao) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
+			
+            int nvagas = 0;
+
+			String linha = br.readLine();
+			linha = br.readLine();
+			while (linha != null) {
+				
+				String[] vect = linha.split(",");
+				Integer num = Integer.parseInt(vect[0]);
+				Integer votos = Integer.parseInt(vect[1]);
+				String situacao = vect[2];
+				String nome = vect[3];
+				String nomeUrna = vect[4];
+				String sexo = vect[5];
+				Data dataNasc = new Data(vect[6]);
+                int idade = dataNasc.anosPassados(new Data(dataEleicao));
+				String destino = vect[7];
+				Integer numPart = Integer.parseInt(vect[8]);
+				
+				if(destino.equals("Válido")) {
+					Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
+					listaCandidatos.add(candidato);
+
+					//Incrementa o número de vagas contando os candidatos eleitos
+					if(candidato.foiEleito()){
+						nvagas++;
+					}
+				}
+
+				linha = br.readLine();
+			}	
+			br.close();
+            return nvagas;
+		}
+		catch (IOException erro) {
+			System.out.println("Erro: " + erro.getMessage());
+            return 0;
+		}
+		
+	}
+
+    public static void defineNomesPartidos(LinkedList<Candidato> listaCandidatos , LinkedList<Partido> listaPartidos){
+        int i;
+		for(i=0; i < listaCandidatos.size(); i++) {
+            //Pega o candidato i e salva o nome do partido ao qual ele pertence
+			listaCandidatos.get(i).setNomePartido(getPartidoByNum(listaPartidos, listaCandidatos.get(i).getNumeroPartido()).getNome());
+		}
+    }
+
+    public static void getDadosPartidos(File path, LinkedList<Partido> listaPartidos) {
+		
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
+			
+			String linha = br.readLine();
+			linha = br.readLine();
+			while (linha != null) {
+				
+				String[] vect = linha.split(",");
+				Integer num = Integer.parseInt(vect[0]);
+				Integer votos = Integer.parseInt(vect[1]);
+				String nome = vect[2];
+				String sigla = vect[3];
+				
+				Partido partido = new Partido(num, nome, sigla, votos);
+				listaPartidos.add(partido);
+				
+				linha = br.readLine();
+			}	
+
+            br.close();
+			
+		}
+		catch (IOException erro) {
+			System.out.println("Erro: " + erro.getMessage());
+		}
+	}
+	
+	public static Partido getPartidoByNum(LinkedList<Partido> listaPartidos, int num) {
+		int i;
+		for(i=0; i < listaPartidos.size(); i++) {
+			if (Objects.equals(listaPartidos.get(i).getNumero(), num)) {
+				return listaPartidos.get(i);
+			}
+		}
+		return null;
+	}
+
+    public static void setPartidosEleitos(LinkedList<Partido> listaPartidos, LinkedList<Candidato> lista){
+		int i;
+		for(i=0; i < listaPartidos.size(); i++){			
+			listaPartidos.get(i).setEleitos(lista);
+		}
 	}
 }
 
