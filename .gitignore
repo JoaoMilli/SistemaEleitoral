@@ -1,3 +1,4 @@
 .project
 .vscode/launch.json
-bin/Programa/Main.class
+bin/Programa/*.class
+bin/Objetos/*.class

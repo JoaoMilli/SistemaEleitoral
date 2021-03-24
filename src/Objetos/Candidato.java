@@ -74,7 +74,7 @@ public class Candidato implements Comparable<Candidato> {
     @Override
     public String toString() {
 
-		if (this.votosNominais == 1){
+		if (this.votosNominais <= 1){
 			return this.nome + " / " + this.nomeUrna + " (" + this.nomePartido + ", " + this.votosNominais + " voto)";
 		} else {
         	return this.nome + " / " + this.nomeUrna + " (" + this.nomePartido + ", " + this.votosNominais + " votos)";
