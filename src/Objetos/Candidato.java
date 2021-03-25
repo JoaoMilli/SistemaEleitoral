@@ -30,7 +30,7 @@ public class Candidato implements Comparable<Candidato> {
 	}
 	
 	public String getNomePartido() {
-        return nomePartido;
+        return this.nomePartido;
     }
     public int getNumero() {
 		return this.numero;
@@ -91,7 +91,15 @@ public class Candidato implements Comparable<Candidato> {
             //Se tiver menos votos, retorna que é maior, para ser inserido mais para o final da lista
             return 1;
         }
-        //Se for igual, retorna 0
+        //Se for igual, verifica a idade, sendo que o mais velho vem antes
+		if(this.getDataNasc().compareTo(o.getDataNasc()) == 1){ //this é mais novo que o
+			return 1; //Colocado mais para o fim da lista
+		}
+		if(this.getDataNasc().compareTo(o.getDataNasc()) == -1){ //this é mais velho que o
+			return -1; //Colocado com maior prioridade na frente da lista
+		}
+
+		//Se têm a mesma quantidade de votos e nasceram no mesmo dia...
         return 0;
     }
 

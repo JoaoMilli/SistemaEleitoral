@@ -1,1 +1,1 @@
-Erro: ..\in\sao-luis-candidatos.csv (O sistema n�o pode encontrar o arquivo especificado)
+Erro: ../in/sao-luis-candidatos.csv (Arquivo ou diretório não encontrado)

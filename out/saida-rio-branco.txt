@@ -1,62 +1,62 @@
-N˙mero de vagas: 17
+N√∫mero de vagas: 17
 
 Vereadores eleitos:
-1 - MICHELLE DE OLIVEIRA MELO WICIUK / DRA. MICHELLE MELO (Partido Democr·tico Trabalhista, 3576 votos)
-2 - SAMIR FIGUEIREDO BESTENE / SAMIR BESTENE (PROGRESSISTAS, 3403 votos)
-3 - ANTONIO LIRA DE MORAIS / ANTONIO MORAIS (Partido Socialista Brasileiro, 2933 votos)
-4 - EMERSON OLIVEIRA JARUDE THOMAZ / EMERSON JARUDE (Movimento Democr·tico Brasileiro, 2765 votos)
-5 - MANOEL JOS… NOGUEIRA LIMA / VER. CAP. N LIMA (PROGRESSISTAS, 2559 votos)
-6 - RAIMUNDO NONATO FERREIRA DA SILVA / RAIMUNDO NEN…M (Partido Socialista Brasileiro, 2555 votos)
-7 - JOAQUIM FLOR NCIO DA SILVA / JOAQUIM FLOR NCIO (Partido Democr·tico Trabalhista, 2411 votos)
-8 - RUT NIO S¡ DE OLIVEIRA / RUT NIO S¡ (PROGRESSISTAS, 2271 votos)
-9 - JOS… ADAILTON CRUZ PEREIRA / ADAILTON CRUZ (Partido Socialista Brasileiro, 2222 votos)
-10 - JOSE ARNALDO DA SILVA BARROS / ARNALDO BARROS (Podemos, 2132 votos)
-11 - FABIO DE ARA⁄JO FREITAS / F¡BIO ARA⁄JO (Partido Democr·tico Trabalhista, 2086 votos)
-12 - ISMAEL DOS SANTOS MACHADO / ISMAEL MACHADO (Partido da Social Democracia Brasileira, 1928 votos)
-13 - SIRLENE OLIVEIRA DA CUNHA / LENE PETEC√O (Partido Social Democr·tico, 1789 votos)
-14 - FRANCISCO DAS CHAGAS BELO OLIVEIRA / FRANCISCO PIABA (Democratas, 1659 votos)
-15 - JOS… C…LIO BRITO DA SILVA / C…LIO GADELHA (Movimento Democr·tico Brasileiro, 1293 votos)
-16 - RAIMUNDO NONATO DE CASTRO / DR RAIMUNDO CASTRO (Partido da Social Democracia Brasileira, 1268 votos)
-17 - HILDEGARD GONDIM NOGUEIRA / HILDEGARD PASCOAL (Partido Social Liberal, 1130 votos)
+1 - MICHELLE DE OLIVEIRA MELO WICIUK / DRA. MICHELLE MELO (PDT, 3576 votos)
+2 - SAMIR FIGUEIREDO BESTENE / SAMIR BESTENE (PP, 3403 votos)
+3 - ANTONIO LIRA DE MORAIS / ANTONIO MORAIS (PSB, 2933 votos)
+4 - EMERSON OLIVEIRA JARUDE THOMAZ / EMERSON JARUDE (MDB, 2765 votos)
+5 - MANOEL JOS√â NOGUEIRA LIMA / VER. CAP. N LIMA (PP, 2559 votos)
+6 - RAIMUNDO NONATO FERREIRA DA SILVA / RAIMUNDO NEN√âM (PSB, 2555 votos)
+7 - JOAQUIM FLOR√äNCIO DA SILVA / JOAQUIM FLOR√äNCIO (PDT, 2411 votos)
+8 - RUT√äNIO S√Å DE OLIVEIRA / RUT√äNIO S√Å (PP, 2271 votos)
+9 - JOS√â ADAILTON CRUZ PEREIRA / ADAILTON CRUZ (PSB, 2222 votos)
+10 - JOSE ARNALDO DA SILVA BARROS / ARNALDO BARROS (PODE, 2132 votos)
+11 - FABIO DE ARA√öJO FREITAS / F√ÅBIO ARA√öJO (PDT, 2086 votos)
+12 - ISMAEL DOS SANTOS MACHADO / ISMAEL MACHADO (PSDB, 1928 votos)
+13 - SIRLENE OLIVEIRA DA CUNHA / LENE PETEC√ÉO (PSD, 1789 votos)
+14 - FRANCISCO DAS CHAGAS BELO OLIVEIRA / FRANCISCO PIABA (DEM, 1659 votos)
+15 - JOS√â C√âLIO BRITO DA SILVA / C√âLIO GADELHA (MDB, 1293 votos)
+16 - RAIMUNDO NONATO DE CASTRO / DR RAIMUNDO CASTRO (PSDB, 1268 votos)
+17 - HILDEGARD GONDIM NOGUEIRA / HILDEGARD PASCOAL (PSL, 1130 votos)
 
-Candidatos mais votados (em ordem decrescente de votaÁ„o e respeitando n˙mero de vagas):
-1 - MICHELLE DE OLIVEIRA MELO WICIUK / DRA. MICHELLE MELO (Partido Democr·tico Trabalhista, 3576 votos)
-2 - SAMIR FIGUEIREDO BESTENE / SAMIR BESTENE (PROGRESSISTAS, 3403 votos)
-3 - ANTONIO LIRA DE MORAIS / ANTONIO MORAIS (Partido Socialista Brasileiro, 2933 votos)
-4 - EMERSON OLIVEIRA JARUDE THOMAZ / EMERSON JARUDE (Movimento Democr·tico Brasileiro, 2765 votos)
-5 - GABRIELA RAMOS CAMARA DAMASCENO / GABRIELA DA BOAS NOVAS (Partido Liberal, 2717 votos)
-6 - MANOEL JOS… NOGUEIRA LIMA / VER. CAP. N LIMA (PROGRESSISTAS, 2559 votos)
-7 - RAIMUNDO NONATO FERREIRA DA SILVA / RAIMUNDO NEN…M (Partido Socialista Brasileiro, 2555 votos)
-8 - JOAQUIM FLOR NCIO DA SILVA / JOAQUIM FLOR NCIO (Partido Democr·tico Trabalhista, 2411 votos)
-9 - RUT NIO S¡ DE OLIVEIRA / RUT NIO S¡ (PROGRESSISTAS, 2271 votos)
-10 - JOS… ADAILTON CRUZ PEREIRA / ADAILTON CRUZ (Partido Socialista Brasileiro, 2222 votos)
-11 - JOSE ARNALDO DA SILVA BARROS / ARNALDO BARROS (Podemos, 2132 votos)
+Candidatos mais votados (em ordem decrescente de vota√ß√£o e respeitando n√∫mero de vagas):
+1 - MICHELLE DE OLIVEIRA MELO WICIUK / DRA. MICHELLE MELO (PDT, 3576 votos)
+2 - SAMIR FIGUEIREDO BESTENE / SAMIR BESTENE (PP, 3403 votos)
+3 - ANTONIO LIRA DE MORAIS / ANTONIO MORAIS (PSB, 2933 votos)
+4 - EMERSON OLIVEIRA JARUDE THOMAZ / EMERSON JARUDE (MDB, 2765 votos)
+5 - GABRIELA RAMOS CAMARA DAMASCENO / GABRIELA DA BOAS NOVAS (PL, 2717 votos)
+6 - MANOEL JOS√â NOGUEIRA LIMA / VER. CAP. N LIMA (PP, 2559 votos)
+7 - RAIMUNDO NONATO FERREIRA DA SILVA / RAIMUNDO NEN√âM (PSB, 2555 votos)
+8 - JOAQUIM FLOR√äNCIO DA SILVA / JOAQUIM FLOR√äNCIO (PDT, 2411 votos)
+9 - RUT√äNIO S√Å DE OLIVEIRA / RUT√äNIO S√Å (PP, 2271 votos)
+10 - JOS√â ADAILTON CRUZ PEREIRA / ADAILTON CRUZ (PSB, 2222 votos)
+11 - JOSE ARNALDO DA SILVA BARROS / ARNALDO BARROS (PODE, 2132 votos)
 12 - BRUNO MORAES CARDOSO / BRUNO MORAES (REPUBLICANOS, 2098 votos)
-13 - FABIO DE ARA⁄JO FREITAS / F¡BIO ARA⁄JO (Partido Democr·tico Trabalhista, 2086 votos)
-14 - RAILSON CORREIA DA COSTA / RAILSON CORREIA (Podemos, 2068 votos)
-15 - JAMES CUNHA DE SOUSA / JAMES DO LACEN (Partido Democr·tico Trabalhista, 2052 votos)
-16 - RICHARD SILVA BRILHANTE DE CARVALHO / RICHARD BRILHANTE (Partido Democr·tico Trabalhista, 1984 votos)
-17 - ELZA TEIXEIRA DE MENDON«A / ELZINHA MENDON«A (Partido Socialista Brasileiro, 1930 votos)
+13 - FABIO DE ARA√öJO FREITAS / F√ÅBIO ARA√öJO (PDT, 2086 votos)
+14 - RAILSON CORREIA DA COSTA / RAILSON CORREIA (PODE, 2068 votos)
+15 - JAMES CUNHA DE SOUSA / JAMES DO LACEN (PDT, 2052 votos)
+16 - RICHARD SILVA BRILHANTE DE CARVALHO / RICHARD BRILHANTE (PDT, 1984 votos)
+17 - ELZA TEIXEIRA DE MENDON√áA / ELZINHA MENDON√áA (PSB, 1930 votos)
 
-Teriam sido eleitos se a votaÁ„o fosse majorit·ria, e n„o foram eleitos:
-(com sua posiÁ„o no ranking de mais votados)
-5 - GABRIELA RAMOS CAMARA DAMASCENO / GABRIELA DA BOAS NOVAS (Partido Liberal, 2717 votos)
+Teriam sido eleitos se a vota√ß√£o fosse majorit√°ria, e n√£o foram eleitos:
+(com sua posi√ß√£o no ranking de mais votados)
+5 - GABRIELA RAMOS CAMARA DAMASCENO / GABRIELA DA BOAS NOVAS (PL, 2717 votos)
 12 - BRUNO MORAES CARDOSO / BRUNO MORAES (REPUBLICANOS, 2098 votos)
-14 - RAILSON CORREIA DA COSTA / RAILSON CORREIA (Podemos, 2068 votos)
-15 - JAMES CUNHA DE SOUSA / JAMES DO LACEN (Partido Democr·tico Trabalhista, 2052 votos)
-16 - RICHARD SILVA BRILHANTE DE CARVALHO / RICHARD BRILHANTE (Partido Democr·tico Trabalhista, 1984 votos)
-17 - ELZA TEIXEIRA DE MENDON«A / ELZINHA MENDON«A (Partido Socialista Brasileiro, 1930 votos)
+14 - RAILSON CORREIA DA COSTA / RAILSON CORREIA (PODE, 2068 votos)
+15 - JAMES CUNHA DE SOUSA / JAMES DO LACEN (PDT, 2052 votos)
+16 - RICHARD SILVA BRILHANTE DE CARVALHO / RICHARD BRILHANTE (PDT, 1984 votos)
+17 - ELZA TEIXEIRA DE MENDON√áA / ELZINHA MENDON√áA (PSB, 1930 votos)
 
 Eleitos, que se beneficiaram do sistema proporcional:
-(com sua posiÁ„o no ranking de mais votados)
-18 - ISMAEL DOS SANTOS MACHADO / ISMAEL MACHADO (Partido da Social Democracia Brasileira, 1928 votos)
-20 - SIRLENE OLIVEIRA DA CUNHA / LENE PETEC√O (Partido Social Democr·tico, 1789 votos)
-21 - FRANCISCO DAS CHAGAS BELO OLIVEIRA / FRANCISCO PIABA (Democratas, 1659 votos)
-28 - JOS… C…LIO BRITO DA SILVA / C…LIO GADELHA (Movimento Democr·tico Brasileiro, 1293 votos)
-30 - RAIMUNDO NONATO DE CASTRO / DR RAIMUNDO CASTRO (Partido da Social Democracia Brasileira, 1268 votos)
-33 - HILDEGARD GONDIM NOGUEIRA / HILDEGARD PASCOAL (Partido Social Liberal, 1130 votos)
+(com sua posi√ß√£o no ranking de mais votados)
+18 - ISMAEL DOS SANTOS MACHADO / ISMAEL MACHADO (PSDB, 1928 votos)
+20 - SIRLENE OLIVEIRA DA CUNHA / LENE PETEC√ÉO (PSD, 1789 votos)
+21 - FRANCISCO DAS CHAGAS BELO OLIVEIRA / FRANCISCO PIABA (DEM, 1659 votos)
+28 - JOS√â C√âLIO BRITO DA SILVA / C√âLIO GADELHA (MDB, 1293 votos)
+30 - RAIMUNDO NONATO DE CASTRO / DR RAIMUNDO CASTRO (PSDB, 1268 votos)
+33 - HILDEGARD GONDIM NOGUEIRA / HILDEGARD PASCOAL (PSL, 1130 votos)
 
-VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
+Vota√ß√£o dos partidos e n√∫mero de candidatos eleitos:
 1 - PSB - 40, 20196 votos (18683 nominais e 1513 de legenda), 3 candidatos eleitos
 2 - PDT - 12, 19317 votos (18983 nominais e 334 de legenda), 3 candidatos eleitos
 3 - PP - 11, 17623 votos (13330 nominais e 4293 de legenda), 3 candidatos eleitos
@@ -85,36 +85,36 @@ VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
 26 - PMB - 35, 43 votos (35 nominais e 8 de legenda), 0 candidato eleito
 27 - PCO - 29, 6 votos (1 nominal e 5 de legenda), 0 candidato eleito
 
-Primeiro e ˙ltimo colocados de cada partido:
+Primeiro e √∫ltimo colocados de cada partido:
 1 - PDT - 12, DRA. MICHELLE MELO (12222, 3576 votos) / ROGGER WINS (12247, 17 votos)
-2 - PP - 11, SAMIR BESTENE (11106, 3403 votos) / ROS¬NGELA RODRIGUES (11787, 92 votos)
-3 - PSB - 40, ANTONIO MORAIS (40234, 2933 votos) / RNNES FRAN«A (40258, 30 votos)
+2 - PP - 11, SAMIR BESTENE (11106, 3403 votos) / ROS√ÇNGELA RODRIGUES (11787, 92 votos)
+3 - PSB - 40, ANTONIO MORAIS (40234, 2933 votos) / RNNES FRAN√áA (40258, 30 votos)
 4 - MDB - 15, EMERSON JARUDE (15000, 2765 votos) / FRANCISNNEY OLIVEIRA (15112, 25 votos)
 5 - PL - 22, GABRIELA DA BOAS NOVAS (22333, 2717 votos) / DENISE BORGES (22007, 0 voto)
 6 - PODE - 19, ARNALDO BARROS (19123, 2132 votos) / GEANE NASCIMENTO (19800, 0 voto)
 7 - REPUBLICANOS - 10, BRUNO MORAES (10000, 2098 votos) / MATHEUS ALMEIDA (10110, 4 votos)
-8 - PSDB - 45, ISMAEL MACHADO (45789, 1928 votos) / F¡TIMA TEN”RIO (45065, 17 votos)
-9 - PSD - 55, LENE PETEC√O (55555, 1789 votos) / MOTA (55014, 43 votos)
+8 - PSDB - 45, ISMAEL MACHADO (45789, 1928 votos) / F√ÅTIMA TEN√ìRIO (45065, 17 votos)
+9 - PSD - 55, LENE PETEC√ÉO (55555, 1789 votos) / MOTA (55014, 43 votos)
 10 - DEM - 25, FRANCISCO PIABA (25888, 1659 votos) / GLESSY LEME (25001, 1 voto)
 11 - DC - 27, GLEIDSON MENEZES (27000, 1296 votos) / MARI CARNEIRO (27114, 9 votos)
 12 - PSL - 17, HILDEGARD PASCOAL (17000, 1130 votos) / WELLINGTON DANIEL (17770, 31 votos)
 13 - PC do B - 65, EDUARDO FARIAS (DUDU) (65013, 1112 votos) / PASTOR FRANCISCO (65999, 11 votos)
-14 - CIDADANIA - 23, PROFESSOR SERGIO TORRES (23456, 1026 votos) / RAQUEL PL¡CIDO (23477, 0 voto)
+14 - CIDADANIA - 23, PROFESSOR SERGIO TORRES (23456, 1026 votos) / RAQUEL PL√ÅCIDO (23477, 0 voto)
 15 - AVANTE - 70, JIMY JURUNA (70456, 1025 votos) / FATIMA RIOS  (70070, 16 votos)
 16 - PATRIOTA - 51, SUELLEN CARLOS  (51212, 911 votos) / ALITALIA RODRIGUES (51800, 0 voto)
-17 - PV - 43, Z… LUIZ DA AUTOESCOLA (43444, 867 votos) / RAQUEL F…LIX (43024, 15 votos)
+17 - PV - 43, Z√â LUIZ DA AUTOESCOLA (43444, 867 votos) / RAQUEL F√âLIX (43024, 15 votos)
 18 - PT - 13, RODRIGO FORNECK (13131, 809 votos) / RAFAEL LOPES  (13456, 90 votos)
 19 - SOLIDARIEDADE - 77, ELISON AZEVEDO (77999, 693 votos) / FRANCISCA SANTIAGO (77077, 32 votos)
 20 - PROS - 90, DANKAR (90000, 624 votos) / AILTON CAVALCANTE (90018, 3 votos)
 21 - PSC - 20, RAIMUNDINHA ASSISTENTE SOCIAL (20111, 589 votos) / LURDINHA CANTORA (20202, 24 votos)
-22 - PTB - 14, DRA. TALITA MENDON«A (14444, 529 votos) / CAMILA CUNHA (14001, 4 votos)
-23 - PSOL - 50, ESVALDINO NASCIMENTO (50123, 309 votos) / FRANCISCO PIY√KO (50050, 5 votos)
+22 - PTB - 14, DRA. TALITA MENDON√áA (14444, 529 votos) / CAMILA CUNHA (14001, 4 votos)
+23 - PSOL - 50, ESVALDINO NASCIMENTO (50123, 309 votos) / FRANCISCO PIY√ÉKO (50050, 5 votos)
 24 - PCB - 21, POETA CESINHA (21021, 292 votos) / POETA CESINHA (21021, 292 votos)
 25 - PMN - 33, LEILA MONTEIRO (33333, 38 votos) / GRACIL BANDEIRA ROQUE (33000, 13 votos)
 26 - PMB - 35, MARCO AURELIO (35555, 20 votos) / GLEICIANE SANTOS  (35123, 1 voto)
 27 - PCO - 29, FRANCISCO LEITE (29029, 1 voto) / FRANCISCO LEITE (29029, 1 voto)
 
-Eleitos, por faixa et·ria (na data da eleiÁ„o):
+Eleitos, por faixa et√°ria (na data da elei√ß√£o):
       Idade < 30: 0 (0,00%)
 30 <= Idade < 40: 4 (23,53%)
 40 <= Idade < 50: 6 (35,29%)
@@ -122,9 +122,9 @@ Eleitos, por faixa et·ria (na data da eleiÁ„o):
 60 <= Idade     : 2 (11,76%)
 
 Eleitos, por sexo:
-Feminino: 2 (11,76%)
+Feminino:  2 (11,76%)
 Masculino: 15 (88,24%)
 
-Total de votos v·lidos: 178561
-Total de votos nominais: 168000 (94,09%)
+Total de votos v√°lidos:    178561
+Total de votos nominais:   168000 (94,09%)
 Total de votos de Legenda: 10561 (5,91%)

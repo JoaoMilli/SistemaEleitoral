@@ -1,16 +1,16 @@
-N˙mero de vagas: 0
+N√∫mero de vagas: 0
 
 Vereadores eleitos:
 
-Candidatos mais votados (em ordem decrescente de votaÁ„o e respeitando n˙mero de vagas):
+Candidatos mais votados (em ordem decrescente de vota√ß√£o e respeitando n√∫mero de vagas):
 
-Teriam sido eleitos se a votaÁ„o fosse majorit·ria, e n„o foram eleitos:
-(com sua posiÁ„o no ranking de mais votados)
+Teriam sido eleitos se a vota√ß√£o fosse majorit√°ria, e n√£o foram eleitos:
+(com sua posi√ß√£o no ranking de mais votados)
 
 Eleitos, que se beneficiaram do sistema proporcional:
-(com sua posiÁ„o no ranking de mais votados)
+(com sua posi√ß√£o no ranking de mais votados)
 
-VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
+Vota√ß√£o dos partidos e n√∫mero de candidatos eleitos:
 1 - AVANTE - 70, 86971 votos (80150 nominais e 6821 de legenda), 0 candidato eleito
 2 - PSC - 20, 81893 votos (80866 nominais e 1027 de legenda), 0 candidato eleito
 3 - PATRIOTA - 51, 64139 votos (61215 nominais e 2924 de legenda), 0 candidato eleito
@@ -42,13 +42,13 @@ VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
 29 - REDE - 18, 2145 votos (2015 nominais e 130 de legenda), 0 candidato eleito
 30 - PSTU - 16, 309 votos (107 nominais e 202 de legenda), 0 candidato eleito
 
-Primeiro e ˙ltimo colocados de cada partido:
-1 - REPUBLICANOS - 10, JO√O CARLOS (10123, 13880 votos) / NIDY SOUZA (10154, 0 voto)
+Primeiro e √∫ltimo colocados de cada partido:
+1 - REPUBLICANOS - 10, JO√ÉO CARLOS (10123, 13880 votos) / NIDY SOUZA (10154, 0 voto)
 2 - PATRIOTA - 51, JOELSON SILVA (51051, 12493 votos) / DOMINIQUE ARAUJO (51432, 0 voto)
 3 - PODE - 19, PROFESSORA JACQUELINE (19300, 9208 votos) / DOS SANTOS (19419, 16 votos)
 4 - PSOL - 50, MICHELLE DA BANCADA COLETIVA (50123, 7662 votos) / DANIELA MASSULO (50600, 84 votos)
-5 - PMN - 33, KENNEDY DA ANJOS DE RUA (33000, 6956 votos) / PROF™ CLAUDIA REGINA (33773, 15 votos)
-6 - PP - 11, THAYSA LIPPY (11000, 6736 votos) / ROBELITA COSTA (11110, 1 voto)
+5 - PMN - 33, KENNEDY DA ANJOS DE RUA (33000, 6956 votos) / PROF¬™ CLAUDIA REGINA (33773, 15 votos)
+6 - PP - 11, THAYSA LIPPY (11000, 6736 votos) / DONA RAI DO MULTIR√ÉO (11654, 1 voto)
 7 - PSDB - 45, ROSIVALDO CORDOVIL (45455, 6358 votos) / RAIMUNDO LUNA (45669, 21 votos)
 8 - PC do B - 65, JAILDO OLIVEIRA (65144, 6022 votos) / MARLEANY SOARES (65126, 5 votos)
 9 - PSB - 40, MARCELO SERAFIM (40111, 5806 votos) / LENE BARROS (40622, 21 votos)
@@ -60,21 +60,21 @@ Primeiro e ˙ltimo colocados de cada partido:
 15 - PV - 43, FRANSUA (43333, 4828 votos) / MARCIA  SOARES (43550, 0 voto)
 16 - DC - 27, RAIFF MATOS (27027, 4621 votos) / DOM SAMPAIO (27999, 4 votos)
 17 - PL - 22, PROFESSOR SAMUEL (22123, 4461 votos) / NIRA NERES (22220, 20 votos)
-18 - PRTB - 28, YOMARA LINS (28228, 4278 votos) / ALBERTO SERR√O (28005, 15 votos)
+18 - PRTB - 28, YOMARA LINS (28228, 4278 votos) / ALBERTO SERR√ÉO (28005, 15 votos)
 19 - PTB - 14, MITOSO (14777, 4277 votos) / BIA DA QUATORZE (14927, 1 voto)
-20 - MDB - 15, GEDE√O AMORIM (15555, 3966 votos) / ZENITA CASTRO (15177, 8 votos)
-21 - CIDADANIA - 23, WILLIAM ALEM√O (23456, 3237 votos) / EUGENIA RODRIGUES (23567, 1 voto)
-22 - PT - 13, SASS¡ DA CONSTRU«√O CIVIL (13418, 3023 votos) / MOISES ALVES (13457, 18 votos)
-23 - SOLIDARIEDADE - 77, BESSA (77123, 2573 votos) / SAB¡ CEAR¡ DA RAPADURA (77033, 4 votos)
-24 - PTC - 36, PEIXOTO (36888, 2450 votos) / IRM√ PAIZINHA (36050, 0 voto)
+20 - MDB - 15, GEDE√ÉO AMORIM (15555, 3966 votos) / ZENITA CASTRO (15177, 8 votos)
+21 - CIDADANIA - 23, WILLIAM ALEM√ÉO (23456, 3237 votos) / EUGENIA RODRIGUES (23567, 1 voto)
+22 - PT - 13, SASS√Å DA CONSTRU√á√ÉO CIVIL (13418, 3023 votos) / MOISES ALVES (13457, 18 votos)
+23 - SOLIDARIEDADE - 77, BESSA (77123, 2573 votos) / SAB√Å CEAR√Å DA RAPADURA (77033, 4 votos)
+24 - PTC - 36, PEIXOTO (36888, 2450 votos) / IRM√É PAIZINHA (36050, 0 voto)
 25 - PMB - 35, LUIZINHO MELO (35123, 1511 votos) / THAIS MOTA (35250, 0 voto)
 26 - NOVO - 30, WANESSA PACHECO (30030, 1321 votos) / GLEDSON LIMA (30333, 316 votos)
 27 - PSD - 55, CORONEL WILSON (55555, 1129 votos) / LEDA BARATA (55891, 38 votos)
 28 - PDT - 12, RENIER SOUZA (12123, 1027 votos) / GIOVANA VASQUES (12745, 0 voto)
 29 - REDE - 18, PEDRO NETO (18333, 430 votos) / ENILSON TAVEIRA (18232, 40 votos)
-30 - PSTU - 16, TARCÕSIO LE√O (16016, 107 votos) / TARCÕSIO LE√O (16016, 107 votos)
+30 - PSTU - 16, TARC√çSIO LE√ÉO (16016, 107 votos) / TARC√çSIO LE√ÉO (16016, 107 votos)
 
-Eleitos, por faixa et·ria (na data da eleiÁ„o):
+Eleitos, por faixa et√°ria (na data da elei√ß√£o):
       Idade < 30: 0 (NaN%)
 30 <= Idade < 40: 0 (NaN%)
 40 <= Idade < 50: 0 (NaN%)
@@ -82,9 +82,9 @@ Eleitos, por faixa et·ria (na data da eleiÁ„o):
 60 <= Idade     : 0 (NaN%)
 
 Eleitos, por sexo:
-Feminino: 0 (NaN%)
+Feminino:  0 (NaN%)
 Masculino: 0 (NaN%)
 
-Total de votos v·lidos: 986328
-Total de votos nominais: 941119 (95,42%)
+Total de votos v√°lidos:    986328
+Total de votos nominais:   941119 (95,42%)
 Total de votos de Legenda: 45209 (4,58%)

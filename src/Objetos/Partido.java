@@ -65,10 +65,14 @@ public class Partido implements Comparable<Partido>{
 					this.menos_votado = lista.get(i);
 					n++;
 				}
-				else if (lista.get(i).getVotosNominais() > this.mais_votado.getVotosNominais()){
+				else if (lista.get(i).getVotosNominais() > this.mais_votado.getVotosNominais() 
+					|| ( lista.get(i).getVotosNominais() == this.mais_votado.getVotosNominais() 
+						&& lista.get(i).getNumero() < this.mais_votado.getNumero()) ){
 					this.mais_votado = lista.get(i);
 				}
-				else if (lista.get(i).getVotosNominais() < this.menos_votado.getVotosNominais()){
+				else if (lista.get(i).getVotosNominais() < this.menos_votado.getVotosNominais()
+					|| ( lista.get(i).getVotosNominais() == this.menos_votado.getVotosNominais() 
+						&& lista.get(i).getNumero() > this.menos_votado.getNumero()) ){
 					this.menos_votado = lista.get(i);
 				}
 				this.votos_nominais += lista.get(i).getVotosNominais();
@@ -78,20 +82,20 @@ public class Partido implements Comparable<Partido>{
 
 	@Override
     public int compareTo(Partido o) {
-        if (this.getNEleitos() > o.getNEleitos()){
-            return -1;
-        }
-        else if (this.getNEleitos() < o.getNEleitos()){
-            return 1;
-        }
-        else {
-			if (this.votos_legenda + this.votos_nominais > o.votos_legenda + o.votos_nominais){
-				return -1;
-			}
-			else {
-				return 1;
-			}
+		//Compara o número de votos totais do partido. O partido com mais votos tem prioridade
+		if (this.votos_legenda + this.votos_nominais > o.votos_legenda + o.votos_nominais){
+			return -1;
 		}
+		else if (this.votos_legenda + this.votos_nominais < o.votos_legenda + o.votos_nominais){
+			return 1;
+		} 
+		//Caso partidos tenham a mesma quantidade de votos, o partido com número de legenda menor tem prioridade
+		else if (this.getNumero() < o.getNumero()){
+			return -1;
+		}
+		else {
+			return 1;
+		}	
     }
 
 	@Override

@@ -33,17 +33,6 @@ public class Main {
             return;
         }
 
-       /*  DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, locale);
-        Date dataEleicao = null;
-        try {
-            dataEleicao = dateFormat.parse(args[2]);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            System.exit(3);
-        }
-
-        System.out.println(dateFormat.format(dataEleicao)); */
-
 
         //Leitura dos Candidatos
 		File path = new File(args[0]);
@@ -134,7 +123,7 @@ public class Main {
         int i;
 		for(i=0; i < listaCandidatos.size(); i++) {
             //Pega o candidato i e salva o nome do partido ao qual ele pertence
-			listaCandidatos.get(i).setNomePartido(getPartidoByNum(listaPartidos, listaCandidatos.get(i).getNumeroPartido()).getNome());
+			listaCandidatos.get(i).setNomePartido(getPartidoByNum(listaPartidos, listaCandidatos.get(i).getNumeroPartido()).getSigla());
 		}
     }
 
@@ -334,7 +323,7 @@ public class Main {
         pMasculino = (float)nMasculino/(nMasculino+nFeminino);
 
         //Imprimir o resultado:
-        System.out.printf(locale, "Feminino: %d (%.2f%%)\n", nFeminino, (1-pMasculino)*100f);
+        System.out.printf(locale, "Feminino:  %d (%.2f%%)\n", nFeminino, (1-pMasculino)*100f);
         System.out.printf(locale, "Masculino: %d (%.2f%%)\n", nMasculino, pMasculino*100f);
         
 
@@ -356,11 +345,11 @@ public class Main {
         porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
 
         Formatter fmt = new Formatter();
-        fmt.format(locale, "Total de votos válidos: %d\nTotal de votos nominais: %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
+        fmt.format(locale, "Total de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
         String string = fmt.out().toString();
         fmt.close();
 
-        System.out.println(string);
+        System.out.print(string);
 
     }
 

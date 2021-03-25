@@ -56,4 +56,22 @@ public class Data {
         }
         return anos;
     }
+
+    public int compareTo(Data outraData){
+        if(this.ano > outraData.ano){ //Vem depois
+            return 1;
+        } else if (this.ano < outraData.ano){ //Vem antes da outra data
+            return -1;
+        } else if (this.mes > outraData.mes){ //Vem depois da outra data
+            return 1;
+        } else if (this.mes < outraData.mes){ //Vem antes da outra data
+            return -1;
+        } else if (this.dia > outraData.dia){ //Vem depois da outra data
+            return 1;
+        } else if (this.dia < outraData.dia){ //Vem antes da outra data
+            return -1;
+        } else { //Mesma data
+            return 0;
+        }
+    }
 }

@@ -1,64 +1,64 @@
-N˙mero de vagas: 19
+N√∫mero de vagas: 19
 
 Vereadores eleitos:
-1 - MARILON BARBOSA CASTRO / MARILON BARBOSA (Democratas, 2953 votos)
-2 - PEDRO HENRIQUE CARDOSO BECKMAN / PEDRO CARDOSO (Democratas, 2925 votos)
-3 - JANAD MARQUES DE FREITAS VALCARI / PROFESSORA JANAD VALCARI (Podemos, 2083 votos)
-4 - FILIPE MARTINS DOS SANTOS / FILIPE MARTINS (Partido da Social Democracia Brasileira, 2012 votos)
-5 - MOISEMAR ALVES MARINHO / MOISEMAR MARINHO (Partido Democr·tico Trabalhista, 1970 votos)
-6 - ROG…RIO DE FREITAS LEDA BARROS / ROGERIO FREITAS (Movimento Democr·tico Brasileiro, 1942 votos)
-7 - LAUDECY COELHO ARRUDA COIMBRA / LAUDECY COIMBRA (Solidariedade, 1912 votos)
-8 - EUZIMAR PEREIRA DE ASSIS / EUDES ASSIS (Partido da Social Democracia Brasileira, 1659 votos)
-9 - JOATAN SILVA DE JESUS / JOATAN (Cidadania, 1653 votos)
+1 - MARILON BARBOSA CASTRO / MARILON BARBOSA (DEM, 2953 votos)
+2 - PEDRO HENRIQUE CARDOSO BECKMAN / PEDRO CARDOSO (DEM, 2925 votos)
+3 - JANAD MARQUES DE FREITAS VALCARI / PROFESSORA JANAD VALCARI (PODE, 2083 votos)
+4 - FILIPE MARTINS DOS SANTOS / FILIPE MARTINS (PSDB, 2012 votos)
+5 - MOISEMAR ALVES MARINHO / MOISEMAR MARINHO (PDT, 1970 votos)
+6 - ROG√âRIO DE FREITAS LEDA BARROS / ROGERIO FREITAS (MDB, 1942 votos)
+7 - LAUDECY COELHO ARRUDA COIMBRA / LAUDECY COIMBRA (SOLIDARIEDADE, 1912 votos)
+8 - EUZIMAR PEREIRA DE ASSIS / EUDES ASSIS (PSDB, 1659 votos)
+9 - JOATAN SILVA DE JESUS / JOATAN (CIDADANIA, 1653 votos)
 10 - WALDSON PEREIRA SALAZAR / WALDSON DA AGESP (AVANTE, 1467 votos)
-11 - ANTONIO VIEIRA DA SILVA JUNIOR / JUNIOR BRAS√O (Partido Socialista Brasileiro, 1344 votos)
-12 - JUCELINO RODRIGUES DE JESUS / JUCELINO (Partido da Social Democracia Brasileira, 1279 votos)
-13 - RUBENS DE JESUS UCHOA / RUBENS UCH‘A (Cidadania, 1250 votos)
+11 - ANTONIO VIEIRA DA SILVA JUNIOR / JUNIOR BRAS√ÉO (PSB, 1344 votos)
+12 - JUCELINO RODRIGUES DE JESUS / JUCELINO (PSDB, 1279 votos)
+13 - RUBENS DE JESUS UCHOA / RUBENS UCH√îA (CIDADANIA, 1250 votos)
 14 - DANIEL RODRIGO DO NASCIMENTO / DANIEL NASCIMENTO (REPUBLICANOS, 1246 votos)
-15 - MARCIO DA COSTA REIS / M¡RCIO REIS (Partido Social Liberal, 1189 votos)
-16 - MAURO ANTONIO ALVARA LACERDA / LACERDA DO G¡S (Partido Socialista Brasileiro, 1161 votos)
-17 - SOLANGE JANE TAVARES DUAILIBE DE JESUS / SOLANGE DUAILLIBE (Partido dos Trabalhadores, 1147 votos)
-18 - JOS… DO LAGO FOLHA FILHO / FOLHA (Patriota, 1088 votos)
-19 - IOLANDA PEREIRA CASTRO / PROFESSORA IOLANDA CASTRO (Partido Republicano da Ordem Social, 762 votos)
+15 - MARCIO DA COSTA REIS / M√ÅRCIO REIS (PSL, 1189 votos)
+16 - MAURO ANTONIO ALVARA LACERDA / LACERDA DO G√ÅS (PSB, 1161 votos)
+17 - SOLANGE JANE TAVARES DUAILIBE DE JESUS / SOLANGE DUAILLIBE (PT, 1147 votos)
+18 - JOS√â DO LAGO FOLHA FILHO / FOLHA (PATRIOTA, 1088 votos)
+19 - IOLANDA PEREIRA CASTRO / PROFESSORA IOLANDA CASTRO (PROS, 762 votos)
 
-Candidatos mais votados (em ordem decrescente de votaÁ„o e respeitando n˙mero de vagas):
-1 - MARILON BARBOSA CASTRO / MARILON BARBOSA (Democratas, 2953 votos)
-2 - PEDRO HENRIQUE CARDOSO BECKMAN / PEDRO CARDOSO (Democratas, 2925 votos)
-3 - JANAD MARQUES DE FREITAS VALCARI / PROFESSORA JANAD VALCARI (Podemos, 2083 votos)
-4 - FILIPE MARTINS DOS SANTOS / FILIPE MARTINS (Partido da Social Democracia Brasileira, 2012 votos)
-5 - MOISEMAR ALVES MARINHO / MOISEMAR MARINHO (Partido Democr·tico Trabalhista, 1970 votos)
-6 - ROG…RIO DE FREITAS LEDA BARROS / ROGERIO FREITAS (Movimento Democr·tico Brasileiro, 1942 votos)
-7 - LAUDECY COELHO ARRUDA COIMBRA / LAUDECY COIMBRA (Solidariedade, 1912 votos)
-8 - EUZIMAR PEREIRA DE ASSIS / EUDES ASSIS (Partido da Social Democracia Brasileira, 1659 votos)
-9 - JOATAN SILVA DE JESUS / JOATAN (Cidadania, 1653 votos)
-10 - JAIME CAFE DE SA / JAIME CAFE (Solidariedade, 1540 votos)
+Candidatos mais votados (em ordem decrescente de vota√ß√£o e respeitando n√∫mero de vagas):
+1 - MARILON BARBOSA CASTRO / MARILON BARBOSA (DEM, 2953 votos)
+2 - PEDRO HENRIQUE CARDOSO BECKMAN / PEDRO CARDOSO (DEM, 2925 votos)
+3 - JANAD MARQUES DE FREITAS VALCARI / PROFESSORA JANAD VALCARI (PODE, 2083 votos)
+4 - FILIPE MARTINS DOS SANTOS / FILIPE MARTINS (PSDB, 2012 votos)
+5 - MOISEMAR ALVES MARINHO / MOISEMAR MARINHO (PDT, 1970 votos)
+6 - ROG√âRIO DE FREITAS LEDA BARROS / ROGERIO FREITAS (MDB, 1942 votos)
+7 - LAUDECY COELHO ARRUDA COIMBRA / LAUDECY COIMBRA (SOLIDARIEDADE, 1912 votos)
+8 - EUZIMAR PEREIRA DE ASSIS / EUDES ASSIS (PSDB, 1659 votos)
+9 - JOATAN SILVA DE JESUS / JOATAN (CIDADANIA, 1653 votos)
+10 - JAIME CAFE DE SA / JAIME CAFE (SOLIDARIEDADE, 1540 votos)
 11 - WALDSON PEREIRA SALAZAR / WALDSON DA AGESP (AVANTE, 1467 votos)
-12 - EDSON MOTA DE OLIVEIRA / ETINHO NORDESTE (Democratas, 1444 votos)
-13 - L⁄CIO CAMPELO DA SILVA / LUCIO CAMPELO (Movimento Democr·tico Brasileiro, 1349 votos)
-14 - ANTONIO VIEIRA DA SILVA JUNIOR / JUNIOR BRAS√O (Partido Socialista Brasileiro, 1344 votos)
-15 - JUCELINO RODRIGUES DE JESUS / JUCELINO (Partido da Social Democracia Brasileira, 1279 votos)
-16 - RUBENS DE JESUS UCHOA / RUBENS UCH‘A (Cidadania, 1250 votos)
+12 - EDSON MOTA DE OLIVEIRA / ETINHO NORDESTE (DEM, 1444 votos)
+13 - L√öCIO CAMPELO DA SILVA / LUCIO CAMPELO (MDB, 1349 votos)
+14 - ANTONIO VIEIRA DA SILVA JUNIOR / JUNIOR BRAS√ÉO (PSB, 1344 votos)
+15 - JUCELINO RODRIGUES DE JESUS / JUCELINO (PSDB, 1279 votos)
+16 - RUBENS DE JESUS UCHOA / RUBENS UCH√îA (CIDADANIA, 1250 votos)
 17 - DANIEL RODRIGO DO NASCIMENTO / DANIEL NASCIMENTO (REPUBLICANOS, 1246 votos)
-18 - HILDA GOMES CAMPELO / PASTORA HILDA (Partido Liberal, 1240 votos)
-19 - RAIMUNDO R GO DE NEGREIROS / MAJOR NEGREIROS (Partido da Social Democracia Brasileira, 1207 votos)
+18 - HILDA GOMES CAMPELO / PASTORA HILDA (PL, 1240 votos)
+19 - RAIMUNDO R√äGO DE NEGREIROS / MAJOR NEGREIROS (PSDB, 1207 votos)
 
-Teriam sido eleitos se a votaÁ„o fosse majorit·ria, e n„o foram eleitos:
-(com sua posiÁ„o no ranking de mais votados)
-10 - JAIME CAFE DE SA / JAIME CAFE (Solidariedade, 1540 votos)
-12 - EDSON MOTA DE OLIVEIRA / ETINHO NORDESTE (Democratas, 1444 votos)
-13 - L⁄CIO CAMPELO DA SILVA / LUCIO CAMPELO (Movimento Democr·tico Brasileiro, 1349 votos)
-18 - HILDA GOMES CAMPELO / PASTORA HILDA (Partido Liberal, 1240 votos)
-19 - RAIMUNDO R GO DE NEGREIROS / MAJOR NEGREIROS (Partido da Social Democracia Brasileira, 1207 votos)
+Teriam sido eleitos se a vota√ß√£o fosse majorit√°ria, e n√£o foram eleitos:
+(com sua posi√ß√£o no ranking de mais votados)
+10 - JAIME CAFE DE SA / JAIME CAFE (SOLIDARIEDADE, 1540 votos)
+12 - EDSON MOTA DE OLIVEIRA / ETINHO NORDESTE (DEM, 1444 votos)
+13 - L√öCIO CAMPELO DA SILVA / LUCIO CAMPELO (MDB, 1349 votos)
+18 - HILDA GOMES CAMPELO / PASTORA HILDA (PL, 1240 votos)
+19 - RAIMUNDO R√äGO DE NEGREIROS / MAJOR NEGREIROS (PSDB, 1207 votos)
 
 Eleitos, que se beneficiaram do sistema proporcional:
-(com sua posiÁ„o no ranking de mais votados)
-22 - MARCIO DA COSTA REIS / M¡RCIO REIS (Partido Social Liberal, 1189 votos)
-24 - MAURO ANTONIO ALVARA LACERDA / LACERDA DO G¡S (Partido Socialista Brasileiro, 1161 votos)
-25 - SOLANGE JANE TAVARES DUAILIBE DE JESUS / SOLANGE DUAILLIBE (Partido dos Trabalhadores, 1147 votos)
-28 - JOS… DO LAGO FOLHA FILHO / FOLHA (Patriota, 1088 votos)
-45 - IOLANDA PEREIRA CASTRO / PROFESSORA IOLANDA CASTRO (Partido Republicano da Ordem Social, 762 votos)
+(com sua posi√ß√£o no ranking de mais votados)
+22 - MARCIO DA COSTA REIS / M√ÅRCIO REIS (PSL, 1189 votos)
+24 - MAURO ANTONIO ALVARA LACERDA / LACERDA DO G√ÅS (PSB, 1161 votos)
+25 - SOLANGE JANE TAVARES DUAILIBE DE JESUS / SOLANGE DUAILLIBE (PT, 1147 votos)
+28 - JOS√â DO LAGO FOLHA FILHO / FOLHA (PATRIOTA, 1088 votos)
+45 - IOLANDA PEREIRA CASTRO / PROFESSORA IOLANDA CASTRO (PROS, 762 votos)
 
-VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
+Vota√ß√£o dos partidos e n√∫mero de candidatos eleitos:
 1 - PSDB - 45, 14341 votos (12897 nominais e 1444 de legenda), 3 candidatos eleitos
 2 - PSB - 40, 10720 votos (10337 nominais e 383 de legenda), 2 candidatos eleitos
 3 - DEM - 25, 10292 votos (10148 nominais e 144 de legenda), 2 candidatos eleitos
@@ -85,24 +85,24 @@ VotaÁ„o dos partidos e n˙mero de candidatos eleitos:
 24 - REDE - 18, 227 votos (204 nominais e 23 de legenda), 0 candidato eleito
 25 - PMB - 35, 134 votos (104 nominais e 30 de legenda), 0 candidato eleito
 
-Primeiro e ˙ltimo colocados de cada partido:
-1 - DEM - 25, MARILON BARBOSA (25100, 2953 votos) / T…ZZIA ALMEIDA (25113, 4 votos)
-2 - PODE - 19, PROFESSORA JANAD VALCARI (19800, 2083 votos) / ¬NGELA MARIA (19188, 4 votos)
+Primeiro e √∫ltimo colocados de cada partido:
+1 - DEM - 25, MARILON BARBOSA (25100, 2953 votos) / T√âZZIA ALMEIDA (25113, 4 votos)
+2 - PODE - 19, PROFESSORA JANAD VALCARI (19800, 2083 votos) / √ÇNGELA MARIA (19188, 4 votos)
 3 - PSDB - 45, FILIPE MARTINS (45123, 2012 votos) / MANOELZINHO (45744, 18 votos)
 4 - PDT - 12, MOISEMAR MARINHO (12777, 1970 votos) / CANTOR MAURIELTON (12344, 21 votos)
 5 - MDB - 15, ROGERIO FREITAS (15500, 1942 votos) / FERNANDO BAIANO (15700, 30 votos)
 6 - SOLIDARIEDADE - 77, LAUDECY COIMBRA (77700, 1912 votos) / DENISE (77001, 24 votos)
 7 - CIDADANIA - 23, JOATAN (23123, 1653 votos) / LEIDE TIMOTIO (23331, 1 voto)
 8 - AVANTE - 70, WALDSON DA AGESP (70200, 1467 votos) / NAIELE BATISA (70223, 23 votos)
-9 - PSB - 40, JUNIOR BRAS√O (40190, 1344 votos) / DJ KALINE - JUNTOS NESSA (40400, 26 votos)
+9 - PSB - 40, JUNIOR BRAS√ÉO (40190, 1344 votos) / DJ KALINE - JUNTOS NESSA (40400, 26 votos)
 10 - REPUBLICANOS - 10, DANIEL NASCIMENTO (10318, 1246 votos) / JANIVALDO (10999, 18 votos)
 11 - PL - 22, PASTORA HILDA (22555, 1240 votos) / OSVALDO CORRETOR (22345, 3 votos)
-12 - PSL - 17, M¡RCIO REIS (17123, 1189 votos) / ANTONIO CARLOS (17234, 7 votos)
+12 - PSL - 17, M√ÅRCIO REIS (17123, 1189 votos) / ANTONIO CARLOS (17234, 7 votos)
 13 - PT - 13, SOLANGE DUAILLIBE (13200, 1147 votos) / EDERJOFRE (13300, 32 votos)
 14 - PSC - 20, VANDIN DO POVO (20123, 1093 votos) / KARINA MARDEN (20835, 0 voto)
 15 - PATRIOTA - 51, FOLHA (51100, 1088 votos) / JAIRINHO (51069, 14 votos)
 16 - PROS - 90, PROFESSORA IOLANDA CASTRO (90100, 762 votos) / JESSICA MILEIDE (90400, 7 votos)
-17 - PV - 43, ERIVELTON (43100, 700 votos) / JOELMA GOVEIA (43043, 1 voto)
+17 - PV - 43, ERIVELTON (43100, 700 votos) / CUCAS (43700, 1 voto)
 18 - DC - 27, RAIMUNDO CONTADOR (27300, 699 votos) / MARTHA HADASSA (27017, 3 votos)
 19 - PRTB - 28, JUANOR DA LIMPEZA (28123, 672 votos) / JESSYKA LUMA (28028, 1 voto)
 20 - PTB - 14, JANNAIR ALVES (14014, 490 votos) / AURYA ABREU (14700, 10 votos)
@@ -112,7 +112,7 @@ Primeiro e ˙ltimo colocados de cada partido:
 24 - REDE - 18, ELIANE TOCHTROP (18000, 140 votos) / ANTONIO DINIZ DE AZAMBUJA (18500, 3 votos)
 25 - PMB - 35, PROF SOLANGE (35000, 73 votos) / PASTOR SEVERINO (35111, 31 votos)
 
-Eleitos, por faixa et·ria (na data da eleiÁ„o):
+Eleitos, por faixa et√°ria (na data da elei√ß√£o):
       Idade < 30: 1 (5,26%)
 30 <= Idade < 40: 5 (26,32%)
 40 <= Idade < 50: 6 (31,58%)
@@ -120,9 +120,9 @@ Eleitos, por faixa et·ria (na data da eleiÁ„o):
 60 <= Idade     : 0 (0,00%)
 
 Eleitos, por sexo:
-Feminino: 4 (21,05%)
+Feminino:  4 (21,05%)
 Masculino: 15 (78,95%)
 
-Total de votos v·lidos: 130187
-Total de votos nominais: 125322 (96,26%)
+Total de votos v√°lidos:    130187
+Total de votos nominais:   125322 (96,26%)
 Total de votos de Legenda: 4865 (3,74%)

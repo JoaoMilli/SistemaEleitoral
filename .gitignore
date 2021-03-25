@@ -2,3 +2,4 @@
 .vscode/launch.json
 bin/Programa/*.class
 bin/Objetos/*.class
+bin/Programa/Main.class
