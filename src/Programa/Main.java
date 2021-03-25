@@ -4,6 +4,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Formatter;
 import java.util.LinkedList;
@@ -28,6 +32,17 @@ public class Main {
             System.out.println("Erro! É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)");
             return;
         }
+
+       /*  DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.SHORT, locale);
+        Date dataEleicao = null;
+        try {
+            dataEleicao = dateFormat.parse(args[2]);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            System.exit(3);
+        }
+
+        System.out.println(dateFormat.format(dataEleicao)); */
 
 
         //Leitura dos Candidatos
@@ -75,28 +90,33 @@ public class Main {
 			linha = br.readLine();
 			while (linha != null) {
 				
-				String[] vect = linha.split(",");
-				Integer num = Integer.parseInt(vect[0]);
-				Integer votos = Integer.parseInt(vect[1]);
-				String situacao = vect[2];
-				String nome = vect[3];
-				String nomeUrna = vect[4];
-				String sexo = vect[5];
-				Data dataNasc = new Data(vect[6]);
-                int idade = dataNasc.anosPassados(new Data(dataEleicao));
-				String destino = vect[7];
-				Integer numPart = Integer.parseInt(vect[8]);
-				
-				if(destino.equals("Válido")) {
-					Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
-					listaCandidatos.add(candidato);
-
-					//Incrementa o número de vagas contando os candidatos eleitos
-					if(candidato.foiEleito()){
-						nvagas++;
-					}
-				}
-
+                try{
+                    String[] vect = linha.split(",");
+                    Integer num = Integer.parseInt(vect[0]);
+                    Integer votos = Integer.parseInt(vect[1]);
+                    String situacao = vect[2];
+                    String nome = vect[3];
+                    String nomeUrna = vect[4];
+                    String sexo = vect[5];
+                    Data dataNasc = new Data(vect[6]);
+                    int idade = dataNasc.anosPassados(new Data(dataEleicao));
+                    String destino = vect[7];
+                    Integer numPart = Integer.parseInt(vect[8]);
+                    
+                    if(destino.equals("Válido")) {
+                        Candidato candidato = new Candidato(num, votos, situacao, nome, nomeUrna, sexo, dataNasc, idade, destino, numPart);
+                        listaCandidatos.add(candidato);
+                        
+                        //Incrementa o número de vagas contando os candidatos eleitos
+                        if(candidato.foiEleito()){
+                            nvagas++;
+                        }
+                    }
+                } catch (Exception e) {
+                    System.out.println("Erro: Formato da data da eleição não reconhecido, favor usar dd/mm/aaaa");
+                    System.exit(4);
+                }
+                    
 				linha = br.readLine();
 			}	
 			br.close();

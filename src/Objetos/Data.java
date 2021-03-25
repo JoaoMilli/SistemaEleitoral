@@ -6,11 +6,15 @@ public class Data {
     private int ano;
 
     
-    public Data (String data){
+    public Data (String data) throws Exception{
         String[] dividido = data.split("/");
-        this.dia = Integer.parseInt(dividido[0]);
-        this.mes = Integer.parseInt(dividido[1]);
-        this.ano = Integer.parseInt(dividido[2]);
+        if(dividido.length == 3){
+            this.dia = Integer.parseInt(dividido[0]);
+            this.mes = Integer.parseInt(dividido[1]);
+            this.ano = Integer.parseInt(dividido[2]);
+        } else {
+            throw new Exception();
+        }
     }
 
 
