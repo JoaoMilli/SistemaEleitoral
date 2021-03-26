@@ -15,9 +15,8 @@ public class Comparador implements Comparator<Partido> {
         //Compara qual partido tem um candidato com mais votos
         if(a.getmaisVotado().getVotosNominais() > b.getmaisVotado().getVotosNominais()) return -1;
         if(a.getmaisVotado().getVotosNominais() < b.getmaisVotado().getVotosNominais()) return 1;
-        //Se a quantidade de votos nominais no mais votado forem iguais nos dois partidos verifica o menos votado
-        if(a.getmenosVotado().getVotosNominais() > b.getmenosVotado().getVotosNominais()) return -1;
-        if(a.getmenosVotado().getVotosNominais() < b.getmenosVotado().getVotosNominais()) return 1;
-        else return 0;
+        //Se a quantidade de votos nominais no mais votado forem iguais nos dois partidos verifica o com menor número partidário
+        if(a.getNumero() < b.getNumero()) return -1;
+        else return 1;
     }
 }

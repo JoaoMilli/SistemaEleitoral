@@ -67,12 +67,12 @@ public class Partido implements Comparable<Partido>{
 				}
 				else if (lista.get(i).getVotosNominais() > this.mais_votado.getVotosNominais() 
 					|| ( lista.get(i).getVotosNominais() == this.mais_votado.getVotosNominais() 
-						&& lista.get(i).getNumero() < this.mais_votado.getNumero()) ){
+						&& lista.get(i).getDataNasc().compareTo(this.mais_votado.getDataNasc()) == -1)){
 					this.mais_votado = lista.get(i);
 				}
 				else if (lista.get(i).getVotosNominais() < this.menos_votado.getVotosNominais()
 					|| ( lista.get(i).getVotosNominais() == this.menos_votado.getVotosNominais() 
-						&& lista.get(i).getNumero() > this.menos_votado.getNumero()) ){
+						&& lista.get(i).getDataNasc().compareTo(this.menos_votado.getDataNasc()) == 1 )){
 					this.menos_votado = lista.get(i);
 				}
 				this.votos_nominais += lista.get(i).getVotosNominais();
