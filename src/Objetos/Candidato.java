@@ -1,12 +1,14 @@
+//Classe que representa um candidato
+
 package Objetos;
 
 import java.util.Objects;
 
 public class Candidato implements Comparable<Candidato> {
 
-	private int numero;
+	private int numero; 
 	private int votosNominais;
-	private String situacao;
+	private String situacao; 
 	private String nome;
 	private String nomeUrna;
 	private String sexo;
@@ -15,6 +17,14 @@ public class Candidato implements Comparable<Candidato> {
 	private String destinoVoto;
 	private int numeroPartido;
     private String nomePartido;
+
+
+	/*Construtor da classe Candidato*/
+
+	/*Entradas: número do candidato(int), votos nominais do candidato(int), situação do candidato(String), nome do candidato(String), nome do candidato na urna(String), 
+	sexo do candidato(String), data de nascimento do candidato(Data), idade do candidato (int), validade da candidatura do candidato(String), número do partido(int)*/
+
+	/*Saída: Objeto da classe Candidato instanciado*/
 
 	public Candidato(int num, int votosNominais, String situacao, String nome, String nomeUrna, String sexo, Data dataNasc, int idade, String destinoVoto, int numeroPartido) {
 		this.numero = num;
@@ -29,6 +39,7 @@ public class Candidato implements Comparable<Candidato> {
 		this.numeroPartido = numeroPartido;
 	}
 	
+	/*Getters dos atributos*/
 	public String getNomePartido() {
         return this.nomePartido;
     }
@@ -63,13 +74,28 @@ public class Candidato implements Comparable<Candidato> {
 		return this.numeroPartido;
 	}
 
+	/*Método que define o nome do partido do candidato*/
+
+	/*Entrada: nome do partido do candidato(String)*/
+
+	/*Saida: atributo nomePartido do objeto candidato definido como o conteúdo da String de entrada*/
+
     public void setNomePartido(String nomePartido) {
         this.nomePartido = nomePartido;
     }
 
+	/*Método que verifica se o candidato foi eleito*/
+	/*Entrada: nada*/
+	/*Saída: true se foi eleito, false caso contrário(boolean)*/
+
 	public boolean foiEleito() {
 		return (Objects.equals(this.getSituacao(), "Eleito"));
 	}
+
+
+	/*Método toString() sobrescrito*/
+	/*Entrada: nada*/
+	/*Saída: String contendo dados importantes do candidato(String)*/
 
     @Override
     public String toString() {
@@ -80,6 +106,11 @@ public class Candidato implements Comparable<Candidato> {
         	return this.nome + " / " + this.nomeUrna + " (" + this.nomePartido + ", " + this.votosNominais + " votos)";
 		}
     }
+
+	/*Método compareTo() da interface Comparable, compara dois Objetos candidatos de acordo com o número de votos nominais e por data de nascimento em caso de empate*/
+	/*Entrada: O Objeto candidato a ser comparado(Candidato)*/
+	/*Saída: -1 caso o objeto comparado tenha menor número de votos nominais e 1 caso contrário(int), 
+	em caso de empate retorna 1 caso o objeto comparado tenha menor idade e -1 caso contrário(int), retorna 0 se tiverem a mesma idade e mesmo numero de votos nominais(int)*/
 
     @Override
     public int compareTo(Candidato o) {

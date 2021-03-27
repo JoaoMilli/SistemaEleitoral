@@ -1,3 +1,5 @@
+//Classe que representa uma data do ano
+
 package Objetos;
 
 public class Data {
@@ -5,7 +7,10 @@ public class Data {
     private int mes;
     private int ano;
 
-    
+    /*Construtor da classe Data*/
+	/*Entradas: String representado uma data separada em dia, mês e ano por / (String)*/
+	/*Saída: Objeto da classe Data instanciado*/
+
     public Data (String data) throws Exception{
         String[] dividido = data.split("/");
         if(dividido.length == 3){
@@ -17,6 +22,7 @@ public class Data {
         }
     }
 
+    /*Getters e Setters*/
 
     public int getAno() {
         return ano;
@@ -47,6 +53,10 @@ public class Data {
         this.dia = dia;
     }
 
+    /*Método que retorna o número de anos passados entre datas (int)*/
+	/*Entradas: Data de referência(Data)*/
+	/*Saída: Diferença de anos entre a data representada no objeto pela data de referência(int)*/
+
     public int anosPassados(Data dataDepois){
         int anos = dataDepois.ano - this.ano - 1;
         if(dataDepois.mes > this.mes){
@@ -56,6 +66,10 @@ public class Data {
         }
         return anos;
     }
+
+    /*Método compareTo() da interface Comparable, compara dois Objetos Data*/
+	/*Entrada: O Objeto Data a ser comparado(Data)*/
+	/*Saída: 1 caso a data representada pelo objeto for posterior à data comparada, -1 caso seja anterior e 0 caso as datas sejam iguais*/
 
     public int compareTo(Data outraData){
         if(this.ano > outraData.ano){ //Vem depois

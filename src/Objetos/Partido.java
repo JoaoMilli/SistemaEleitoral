@@ -1,8 +1,11 @@
+//Classe que representa um partido
+
 package Objetos;
 
 import java.util.LinkedList;
 
 public class Partido implements Comparable<Partido>{
+
 	private int numero_partido;
 	private int votos_legenda;
 	private String nome_partido;
@@ -12,6 +15,11 @@ public class Partido implements Comparable<Partido>{
 	private Candidato mais_votado;
 	private Candidato menos_votado;
 	
+
+	/*Construtor da classe Partido*/
+	/*Entradas: número do partido(int), nome do partido(String), sigla do partido(String), votos de legenda do partido(int)*/
+	/*Saída: Objeto da classe Partido instanciado*/
+
 	public Partido(int num, String nome, String sigla, int votos){
 		this.nome_partido = nome;
 		this.numero_partido = num;
@@ -21,7 +29,8 @@ public class Partido implements Comparable<Partido>{
 		this.n_eleitos = 0;
 	}
 	
-	
+	/*Getters*/
+
 	public int getNumero() {
 		return this.numero_partido;
 	}
@@ -54,8 +63,11 @@ public class Partido implements Comparable<Partido>{
 		return this.menos_votado;
 	}
 
+	/*Método que insere o mais votado(Candidato), menos votado(Candidato), o total de votos nominais(int) e o numero de eleitos de um partido (int) nos respectivos atributos*/
+	/*Entrada: Lista de candidatos (LinkedList<Candidato>)*/
+	/*Saída: nenhuma*/
+
 	public void setEleitos(LinkedList<Candidato> lista){
-		//Insere o mais votado, menos votado, o total de votos nominais e o numero de eleitos de um partido
 		int i, n = 0;
 		for(i=0; i < lista.size(); i++){
 			if (lista.get(i).getNumeroPartido() == this.numero_partido){
@@ -80,6 +92,11 @@ public class Partido implements Comparable<Partido>{
 		}
 	}
 
+
+	/*Método compareTo() da interface Comparable, compara dois Objetos Partido de acordo com o número de votos de legenda e por número de partido em caso de empate*/
+	/*Entrada: O Objeto Partido a ser comparado(Partido)*/
+	/*Saída: -1 caso o objeto comparado tenha menor número de votos de legenda e 1 caso contrário(int), em caso de empate retorna 1 caso o objeto comparado tenha o número de partido menor e -1 caso contrário(int)*/
+
 	@Override
     public int compareTo(Partido o) {
 		//Compara o número de votos totais do partido. O partido com mais votos tem prioridade
@@ -97,6 +114,10 @@ public class Partido implements Comparable<Partido>{
 			return 1;
 		}	
     }
+
+	/*Método toString() sobrescrito*/
+	/*Entrada: nada*/
+	/*Saída: String contendo dados importantes do Partido(String)*/
 
 	@Override
     public String toString() {
