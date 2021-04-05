@@ -1,1 +1,0 @@
-Erro: ../in/sao-luis-candidatos.csv (Arquivo ou diretório não encontrado)

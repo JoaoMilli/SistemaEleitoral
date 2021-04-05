@@ -61,7 +61,7 @@ public class Data {
         int anos = dataDepois.ano - this.ano - 1;
         if(dataDepois.mes > this.mes){
             anos++;
-        } else if(dataDepois.mes == this.mes && dataDepois.dia > dataDepois.dia){
+        } else if(dataDepois.mes == this.mes && dataDepois.dia > this.dia){
             anos++;
         }
         return anos;
