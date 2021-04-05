@@ -3,3 +3,4 @@
 bin/Programa/*.class
 bin/Objetos/*.class
 bin/Programa/Main.class
+*.txt
