@@ -332,12 +332,23 @@ public class Main {
                 else nMaiorIgual60++;            
             }
         }
-        //Encontrar a proporção de cada faixa etária
-        pMenor30 = 100*(float)nMenor30 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
-        p30_40 = 100*(float)n30_40 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
-        p40_50 = 100*(float)n40_50 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
-        p50_60 = 100*(float)n50_60 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
-        pMaiorIgual60 = 100*(float)nMaiorIgual60 / (nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60);
+        //Verificar a quantidade total de candidatos
+        int numTotal = nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60;
+        if(numTotal == 0){
+            //Não tem candidatos
+            pMenor30 = 0;
+            p30_40 = 0;
+            p40_50 = 0;
+            p50_60 = 0;
+            pMaiorIgual60 = 0;
+        } else {
+            //Encontrar a proporção de cada faixa etária
+            pMenor30 = 100*(float)nMenor30 / numTotal;
+            p30_40 = 100*(float)n30_40 / numTotal;
+            p40_50 = 100*(float)n40_50 / numTotal;
+            p50_60 = 100*(float)n50_60 / numTotal;
+            pMaiorIgual60 = 100*(float)nMaiorIgual60 / numTotal;
+        }
 
         //Imprimir o resultado:
         System.out.printf(locale, "      Idade < 30: %d (%.2f%%)\n", nMenor30, pMenor30);
@@ -369,7 +380,11 @@ public class Main {
             }
         }
         //Encontrar a proporção de cada sexo
-        pMasculino = (float)nMasculino/(nMasculino+nFeminino);
+        if(nMasculino+nFeminino > 0){
+            pMasculino = (float)nMasculino/(nMasculino+nFeminino);
+        } else {
+            pMasculino = 0.5f;
+        }
 
         //Imprimir o resultado:
         System.out.printf(locale, "Feminino:  %d (%.2f%%)\n", nFeminino, (1-pMasculino)*100f);
@@ -391,9 +406,14 @@ public class Main {
             totaisLegenda += listaPartidos.get(i).getVotos();
         }
         votosTotais = totaisNominais + totaisLegenda;
+        if(votosTotais == 0){
+            porcentoLegenda = 0f;
+            porcentoNominal = 0f;
+        } else {
+            porcentoNominal = 100*((float)totaisNominais / (float)votosTotais);
+            porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
+        }
 
-        porcentoNominal = 100*((float)totaisNominais / (float)votosTotais);
-        porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
 
         Formatter fmt = new Formatter();
         fmt.format(locale, "Total de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
