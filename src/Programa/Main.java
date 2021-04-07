@@ -64,7 +64,9 @@ public class Main {
         ImprimeVotosTotais(listaPartidos);
 	}
    
-
+    /*Função estática que Obtém dados dos candidatos, instancia e os insere na lista de candidatos*/
+	/*Entradas: lista dos candidatos (LinkedList<Candidato>), caminho do arquivo CSV contendo os dados dos Candidatos(Path) e data da eleição (String)*/
+	/*Saída: Número de vagas totais(int) e lista de candidatos contendo todos os candidatos válidos instanciados*/
 
     public static int getDadosCandidatos(LinkedList<Candidato> listaCandidatos, File path, String dataEleicao) {
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF-8"))) {
@@ -115,6 +117,10 @@ public class Main {
 		
 	}
 
+    /*Função estática que define o nome do partido de cada candidato através do número do partido*/
+	/*Entradas: lista de candidatos (LinkedList<Candidato>), lista de partidos (LinkedList<Partido>)*/
+	/*Saída: Candidatos com o nome do própio partido definidos*/
+
     public static void defineNomesPartidos(LinkedList<Candidato> listaCandidatos , LinkedList<Partido> listaPartidos){
         int i;
 		for(i=0; i < listaCandidatos.size(); i++) {
@@ -122,6 +128,11 @@ public class Main {
 			listaCandidatos.get(i).setNomePartido(getPartidoByNum(listaPartidos, listaCandidatos.get(i).getNumeroPartido()).getSigla());
 		}
     }
+
+
+    /*Função estática que Obtém dados dos Partidos, instancia e os insere na lista de partidos*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>) e caminho do arquivo CSV contendo os dados dos Partidos(Path) */
+	/*Saída: lista de partidos contendo todos partidos do arquivo instanciados*/
 
     public static void getDadosPartidos(File path, LinkedList<Partido> listaPartidos) {
 		
@@ -151,7 +162,12 @@ public class Main {
             System.exit(2);
 		}
 	}
-	
+
+    
+    /*Função estática que retorna o partido referente ao seu número*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>) e o número do partido desejado(int)*/
+	/*Saída: Objeto da classe Partido referente ao número inserido*/
+
 	public static Partido getPartidoByNum(LinkedList<Partido> listaPartidos, int num) {
 		int i;
 		for(i=0; i < listaPartidos.size(); i++) {
@@ -162,6 +178,11 @@ public class Main {
 		return null;
 	}
 
+
+    /*Função estática que adiciona o mais e menos votado de cada partido, assim como o número de votos nominais e o total de candidatos eleitos*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>) e lista dos candidatos (LinkedList<Candidato>)*/
+	/*Saída: Objetos Partido da lista de partidos com os atributos adicionados*/
+
     public static void setPartidosEleitos(LinkedList<Partido> listaPartidos, LinkedList<Candidato> lista){
 		int i;
 		for(i=0; i < listaPartidos.size(); i++){			
@@ -169,6 +190,9 @@ public class Main {
 		}
 	}
 
+    /*Função estática que imprime todos os candidatos que foram eleitos*/
+	/*Entradas: lista de candidatos(LinkedList<Partido>)*/
+	/*Saída: Nada*/
 
     private static void imprimeEleitos(LinkedList<Candidato> listaCandidatos) {
 		int i, n=1;
@@ -183,6 +207,10 @@ public class Main {
         System.out.println();
 	}
 
+    /*Função estática que imprime os candidatos mais votados em ordem decrescente de votos*/
+	/*Entradas: lista dos candidatos (LinkedList<Partido>) e número total de vagas (int)*/
+	/*Saída: Nada*/
+
     private static void ImprimeCandidatosMaisVotados( LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):");
         
@@ -193,6 +221,11 @@ public class Main {
         }
         System.out.println();
     }
+
+    
+    /*Função estática que imprime os candidatos não eleitos que teriam sido eleitos se a votação fosse majoritária*/
+	/*Entradas: lista dos candidatos (LinkedList<Candidato>) e número total de vagas (int)*/
+	/*Saída: Nada*/
 
     private static void ImprimeCandidatosPrejudicados(LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Teriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)");
@@ -208,6 +241,11 @@ public class Main {
         System.out.println();
     }
 
+
+    /*Função estática que imprime os candidatos que se beneficiaram do sistema proporcional*/
+	/*Entradas: lista dos candidatos (LinkedList<Candidato>) e número total de vagas (int)*/
+	/*Saída: Nada*/
+
     private static void ImprimeCandidatosBeneficiados(LinkedList<Candidato> listaCandidatos, int nvagas) {
         System.out.println("Eleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)");
         
@@ -222,6 +260,9 @@ public class Main {
         System.out.println();
     }
 
+    /*Função estática que imprime informações dos partidos*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>)*/
+	/*Saída: Nada*/
 
     private static void ImprimePartidos(LinkedList<Partido> listaPartidos){
         listaPartidos.sort(null);
@@ -234,6 +275,10 @@ public class Main {
         System.out.println();
 
     }
+
+    /*Função estática que imprime o primeiro e o último candidato mais votado de cada partido*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>)*/
+	/*Saída: Nada*/
 
     private static void ImprimePrimeiroeUltimo(LinkedList<Partido> listaPartidos){
         Collections.sort(listaPartidos, new Comparador());
@@ -265,6 +310,10 @@ public class Main {
         }
         System.out.println();
     }
+
+    /*Função estática que imprime a distribuição de idade dos candidatos eleitos por faixa etária*/
+	/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
+	/*Saída: Nada*/
 
     private static void ImprimeDistribuicaoIdade(LinkedList<Candidato> listaCandidatos) {
         System.out.println("Eleitos, por faixa etária (na data da eleição):");
@@ -301,6 +350,10 @@ public class Main {
         System.out.println();
     }
 
+    /*Função estática que imprime a distribuição dos candidatos eleitos por sexo*/
+	/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
+	/*Saída: Nada*/
+
     private static void ImprimeDistribuicaoSexo(LinkedList<Candidato> listaCandidatos) {
         System.out.println("Eleitos, por sexo:");
         int nMasculino=0, nFeminino=0;
@@ -326,7 +379,9 @@ public class Main {
         System.out.println();
     }
 
-
+    /*Função estática que imprime os votos totais válidos, nominais e de legenda e imprime sua distribuição*/
+	/*Entradas: lista dos partidos (LinkedList<Partido>)*/
+	/*Saída: Nada*/
     
     private static void ImprimeVotosTotais(LinkedList<Partido> listaPartidos){
         int i, votosTotais = 0, totaisNominais = 0, totaisLegenda = 0;
