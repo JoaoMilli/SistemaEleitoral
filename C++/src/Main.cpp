@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 
+#include "Partido.h"
+#include "Candidato.h"
+
 using namespace std;
 
 void leCSV(string path){
@@ -44,7 +47,7 @@ void leCSV(string path){
 
 int main(){
 
-    string path = "src/candidatos.csv";
+    string path = "candidatos.csv";
     leCSV(path);
 
 }
