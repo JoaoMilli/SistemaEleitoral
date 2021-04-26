@@ -5,3 +5,4 @@ bin/Objetos/*.class
 bin/Programa/Main.class
 *.txt
 *.json
+C++/src/Main

@@ -67,9 +67,9 @@ string Partido::toString() {
     }
     texto << this->votos_legenda << " de legenda), " << this->n_eleitos;
     if (this->getNEleitos() <= 1){
-        texto << " candidato eleito";
+        texto << " candidato eleito\n";
     } else {
-        texto << " candidatos eleitos";
+        texto << " candidatos eleitos\n";
     } 
     return texto.str();
 }
