@@ -31,11 +31,11 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, string path){
         getline(file, sigla_partido);
 
 
-        Partido* partido = new Partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
+        Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
 
-        cout << partido -> toString();
+        cout << partido.toString();
 
-        ListaPartidos.push_back(*partido);
+        ListaPartidos.push_back(partido);
     }
 
     file.close();
@@ -94,10 +94,10 @@ void getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
 
 
         if(!destino_voto.compare("Válido")){
-            Candidato* candidato  = new Candidato(atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
+            Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
             sexo, data_nasc, 0, destino_voto, atoi(numero_partido.c_str()));
 
-            ListaCandidatos.push_back(*candidato);
+            ListaCandidatos.push_back(candidato);
         }
     }
     file.close();
