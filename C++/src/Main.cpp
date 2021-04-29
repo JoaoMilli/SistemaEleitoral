@@ -28,12 +28,10 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, string path){
 
         getline(file, votos_legenda, ',');
         getline(file, nome_partido, ',');
-        getline(file, sigla_partido);
+        getline(file, sigla_partido, '\n');
 
 
         Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
-
-        cout << partido.toString();
 
         ListaPartidos.push_back(partido);
     }
@@ -60,13 +58,14 @@ void defineNomesPartidos(vector<Candidato>& ListaCandidatos , vector<Partido> Li
 	}
 }
 
-void getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
+int getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
 
     ifstream file (path);
+    int nvagas = 0;
 
     if (!file.is_open()){
         std::cout << "Erro: Não foi possível abrir o arquivo" << "\n";
-        return;
+        return 0;
     }
 
     string numero;
@@ -98,19 +97,40 @@ void getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
             sexo, data_nasc, 0, destino_voto, atoi(numero_partido.c_str()));
 
             ListaCandidatos.push_back(candidato);
+            nvagas++;
         }
     }
     file.close();
+    return nvagas;
 }
+
+
+void imprimeEleitos (vector<Candidato> listaCandidatos) {
+	int i, n=1;
+	cout << "Vereadores eleitos:" << "\n";
+	for(i=0; i < listaCandidatos.size(); i++) {
+		if (listaCandidatos[i].foiEleito()) {
+			cout << n << " - " << listaCandidatos[i].toString();
+            n++;
+		}
+	}
+    cout << "\n";
+}
+
 
 int main(){
 
     vector<Partido> ListaPartidos;
     vector<Candidato> ListaCandidatos;
+    int nvagas = 0;
 
     string path = "partidos.csv";
     getDadosPartidos(ListaPartidos, path);
     path = "candidatos.csv";
-    getDadosCandidatos(ListaCandidatos, path);
+    nvagas = getDadosCandidatos(ListaCandidatos, path);
     defineNomesPartidos(ListaCandidatos, ListaPartidos);
+
+    cout << "Número de vagas: " << nvagas << "\n\n";
+    imprimeEleitos (ListaCandidatos);
+
 }

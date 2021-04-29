@@ -6,3 +6,5 @@ bin/Programa/Main.class
 *.txt
 *.json
 C++/src/Main
+C++/src/candidatos.csv
+C++/src/partidos.csv
