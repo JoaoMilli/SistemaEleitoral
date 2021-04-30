@@ -49,9 +49,9 @@ string Candidato::toString() const{
     ostringstream texto;
     texto << this->getNome() << " / " << this->getNomeUrna() << " (" + this->getNomePartido() << ", " << this->getVotosNominais();
     if (this->getVotosNominais() <= 1){
-        texto << " voto)\n";
+        texto << " voto)";
     } else {
-        texto << " votos)\n";
+        texto << " votos)";
     }
     return texto.str();
 }

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <list>
+#include <algorithm>
 
 #include "Partido.h"
 #include "Candidato.h"
@@ -97,7 +97,8 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
             sexo, data_nasc, 0, destino_voto, atoi(numero_partido.c_str()));
 
             ListaCandidatos.push_back(candidato);
-            nvagas++;
+            
+            if (candidato.foiEleito()) nvagas++;
         }
     }
     file.close();
@@ -110,13 +111,25 @@ void imprimeEleitos (vector<Candidato> listaCandidatos) {
 	cout << "Vereadores eleitos:" << "\n";
 	for(i=0; i < listaCandidatos.size(); i++) {
 		if (listaCandidatos[i].foiEleito()) {
-			cout << n << " - " << listaCandidatos[i].toString();
+			cout << n << " - " << listaCandidatos[i].toString() << '\n';
             n++;
 		}
 	}
     cout << "\n";
 }
 
+bool comparaCandidatos(Candidato candidato1, Candidato candidato2){
+    return candidato1.getVotosNominais() > candidato2.getVotosNominais();
+}
+
+void ImprimeCandidatosMaisVotados( vector<Candidato> listaCandidatos, int nvagas) {
+    cout << "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):" << '\n';
+        
+    int i;
+    for (i=0; i<nvagas; i++){
+        cout << (i+1) << " - " << listaCandidatos[i].toString() << '\n';
+    }
+}
 
 int main(){
 
@@ -129,8 +142,9 @@ int main(){
     path = "candidatos.csv";
     nvagas = getDadosCandidatos(ListaCandidatos, path);
     defineNomesPartidos(ListaCandidatos, ListaPartidos);
+    sort(ListaCandidatos.begin(), ListaCandidatos.end(), comparaCandidatos);
 
     cout << "Número de vagas: " << nvagas << "\n\n";
     imprimeEleitos (ListaCandidatos);
-
+    ImprimeCandidatosMaisVotados(ListaCandidatos, nvagas);
 }
