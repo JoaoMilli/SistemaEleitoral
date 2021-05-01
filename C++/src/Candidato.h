@@ -5,6 +5,8 @@
 #include <sstream>
 #include <iostream>
 
+#include "Data.h"
+
 using namespace std;
 
 
@@ -17,7 +19,7 @@ private:
 	string nome;
 	string nomeUrna;
 	string sexo;
-	string dataNasc;
+	Data dataNasc;
     int idade;
 	string destinoVoto;
 	int numeroPartido;
@@ -28,7 +30,7 @@ public:
 	sexo do candidato(string), data de nascimento do candidato(Data), idade do candidato (int), validade da candidatura do candidato(string), número do partido(int)*/
 	/*Saída: Objeto da classe Candidato instanciado*/
 	Candidato(const int& num, const int& votosNominais, const string& situacao, const string& nome, const string& nomeUrna, 
-        const string& sexo, const string& dataNasc, const int& idade, const string& destinoVoto, const int& numeroPartido);
+        const string& sexo, const Data& dataNasc, const int& idade, const string& destinoVoto, const int& numeroPartido);
 
     Candidato(/* Construtor padrão */);
 	
@@ -54,7 +56,7 @@ public:
 	string getSexo() const{
         return this->sexo;
     }
-	string getDataNasc() const{
+	Data getDataNasc() const{
         return this->dataNasc;
     }
     int getIdade() const{
@@ -83,9 +85,19 @@ public:
 	/*Saída: string contendo dados importantes do candidato(string)*/
     string toString() const;
 
-    /*Override do operador <<*/
+    /*Override do operador << */
     /*Envia o .toString() para o outstream*/
     friend ostream& operator<<(ostream &out, const Candidato& candidato);
+
+    /*Override do operador < */
+    /*Define quando um candidato é "menor" que o outro*/
+    /*Compara dois Objetos candidatos de acordo com o número de votos nominais 
+    e por data de nascimento em caso de empate*/
+    /*Entrada: O Objeto candidato a ser comparado(Candidato)*/
+    /*Saída: true caso o objeto comparado tenha menor número de votos nominais e false caso contrário, 
+	em caso de empate retorna false caso o objeto comparado tenha menor idade e true caso contrário, 
+    retorna false se tiverem a mesma idade e mesmo numero de votos nominais*/
+    bool operator<(const Candidato& candidato) const;
 
     ~Candidato(){}
 };

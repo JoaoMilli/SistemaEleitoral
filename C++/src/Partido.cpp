@@ -31,7 +31,7 @@ void Partido::setEleitos(const vector<Candidato>& lista){
                 //////////////////////////////////
                 ////////////////////////////////
                 ///////////// ESSE COMPARE ESTÁ ERRADO //////////////////
-                    && lista[i].getDataNasc().compare(this->mais_votado.getDataNasc()) == -1)){ 
+                    && lista[i].getDataNasc().compareTo(this->mais_votado.getDataNasc()) == -1)){ 
                 this->mais_votado = lista[i];
             }
             else if (lista[i].getVotosNominais() < this->menos_votado.getVotosNominais()
@@ -39,7 +39,7 @@ void Partido::setEleitos(const vector<Candidato>& lista){
                 //////////////////////////////////
                 ////////////////////////////////
                 ///////////// ESSE COMPARE ESTÁ ERRADO //////////////////
-                    && lista[i].getDataNasc().compare(this->menos_votado.getDataNasc()) == 1 )){
+                    && lista[i].getDataNasc().compareTo(this->menos_votado.getDataNasc()) == 1 )){
                 this->menos_votado = lista[i];
             }
             this->votos_nominais += lista[i].getVotosNominais();

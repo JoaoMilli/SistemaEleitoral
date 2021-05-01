@@ -3,6 +3,7 @@
 #include <string>
 #include <algorithm>
 
+#include "Data.h"
 #include "Partido.h"
 #include "Candidato.h"
 
@@ -58,7 +59,7 @@ void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partid
 	}
 }
 
-int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path){
+int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, const Data& dataEleicao){
 
     ifstream file (path);
     int nvagas = 0;
@@ -68,13 +69,16 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path){
         return 0;
     }
 
+
     string numero;
     string votos_nominais;
     string situacao;
     string nome;
     string nome_urna;
     string sexo;
-    string data_nasc;
+    string s_data_nasc;
+    Data data_nascimento;
+    int idade;
     string destino_voto;
     string numero_partido;
 
@@ -87,14 +91,23 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path){
         getline(file, nome, ',');
         getline(file, nome_urna, ',');
         getline(file, sexo, ',');
-        getline(file, data_nasc, ',');
+        getline(file, s_data_nasc, ',');
         getline(file, destino_voto, ',');
         getline(file, numero_partido);
 
+        //Trata a data de nascimento para definir a idade
+        if(Data::validDate(s_data_nasc, Data::DATE_FORMAT_PT_BR_SHORT)){
+            data_nascimento = Data(s_data_nasc);
+        } else {
+            cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
+        }
+        //encontra a quantos anos de diferença entre as datas (idade)
+        idade = dataEleicao.anosPassados(data_nascimento);        
+        
 
         if(!destino_voto.compare("Válido")){
             Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
-            sexo, data_nasc, 0, destino_voto, atoi(numero_partido.c_str()));
+            sexo, data_nascimento, idade, destino_voto, atoi(numero_partido.c_str()));
 
             ListaCandidatos.push_back(candidato);
             
@@ -118,9 +131,6 @@ void imprimeEleitos (const vector<Candidato>& listaCandidatos) {
     cout << "\n";
 }
 
-bool comparaCandidatos(const Candidato& candidato1, const Candidato& candidato2){
-    return candidato1.getVotosNominais() > candidato2.getVotosNominais();
-}
 
 void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, const int& nvagas) {
     cout << "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):" << '\n';
@@ -131,18 +141,31 @@ void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, con
     }
 }
 
-int main(){
+int main(int argc, char** argv){
+
+    //Verifica se os parâmetros de entrada foram inseridos corretamente
+    if(argc != 4){
+        cout << "Erro! É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)" << endl;
+        return 1;
+    }
 
     vector<Partido> ListaPartidos;
     vector<Candidato> ListaCandidatos;
     int nvagas = 0;
 
-    string path = "partidos.csv";
-    getDadosPartidos(ListaPartidos, path);
-    path = "candidatos.csv";
-    nvagas = getDadosCandidatos(ListaCandidatos, path);
+    //Cria objeto com a data da eleição:
+    if(Data::validDate(argv[3], Data::DATE_FORMAT_PT_BR_SHORT)){
+        Data dataEleicao(argv[3]);
+        nvagas = getDadosCandidatos(ListaCandidatos, argv[1], dataEleicao);
+    } else {
+        cout << "Erro! Data da eleição passada em formato errado. O formato esperado é dd/mm/aaaa" << endl;
+        return 2;
+    }
+
+    getDadosPartidos(ListaPartidos, argv[2]);    
+    
     defineNomesPartidos(ListaCandidatos, ListaPartidos);
-    sort(ListaCandidatos.begin(), ListaCandidatos.end(), comparaCandidatos);
+    sort(ListaCandidatos.begin(), ListaCandidatos.end());
 
     cout << "Número de vagas: " << nvagas << "\n\n";
     imprimeEleitos (ListaCandidatos);
