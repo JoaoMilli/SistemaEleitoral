@@ -16,7 +16,7 @@ Partido::Partido(const int& num, const string& nome, const string& sigla, const 
 /*Método que insere o mais votado(Candidato), menos votado(Candidato), o total de votos nominais(int) e o numero de eleitos de um partido (int) nos respectivos atributos*/
 /*Entrada: Lista de candidatos (vector<Candidato>)*/
 /*Saída: nenhuma*/
-void Partido::setEleitos(vector<Candidato> lista){
+void Partido::setEleitos(const vector<Candidato>& lista){
     int i, n = 0;
     for(i=0; i < (int) lista.size(); i++){
         if (lista[i].getNumeroPartido() == this->numero_partido){

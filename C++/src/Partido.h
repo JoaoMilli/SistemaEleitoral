@@ -61,7 +61,7 @@ public:
 	/*Método que insere o mais votado(Candidato), menos votado(Candidato), o total de votos nominais(int) e o numero de eleitos de um partido (int) nos respectivos atributos*/
 	/*Entrada: Lista de candidatos (vector<Candidato>)*/
 	/*Saída: nenhuma*/
-	void setEleitos(vector<Candidato> lista);
+	void setEleitos(const vector<Candidato>& lista);
 
 	/*Método cria uma string que representa o partido*/
 	/*Entrada: nada*/

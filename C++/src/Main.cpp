@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void getDadosPartidos(vector<Partido>& ListaPartidos, string path){
+void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
     ifstream file (path);
 
@@ -40,7 +40,7 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, string path){
 }    
 
 
-Partido getPartidoByNum(vector<Partido> ListaPartidos, int num) {
+Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
 	int i;
     for(i = 0; i < ListaPartidos.size(); i++) {
 		if (ListaPartidos[i].getNumero() == num) {
@@ -50,7 +50,7 @@ Partido getPartidoByNum(vector<Partido> ListaPartidos, int num) {
     return ListaPartidos[i];
 }
 
-void defineNomesPartidos(vector<Candidato>& ListaCandidatos , vector<Partido> ListaPartidos){
+void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partido>& ListaPartidos){
     int i;
 	for(i = 0; i < ListaCandidatos.size(); i++) {
         //Pega o candidato i e salva o nome do partido ao qual ele pertence
@@ -58,7 +58,7 @@ void defineNomesPartidos(vector<Candidato>& ListaCandidatos , vector<Partido> Li
 	}
 }
 
-int getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
+int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path){
 
     ifstream file (path);
     int nvagas = 0;
@@ -106,7 +106,7 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos,string path){
 }
 
 
-void imprimeEleitos (vector<Candidato> listaCandidatos) {
+void imprimeEleitos (const vector<Candidato>& listaCandidatos) {
 	int i, n=1;
 	cout << "Vereadores eleitos:" << "\n";
 	for(i=0; i < listaCandidatos.size(); i++) {
@@ -118,11 +118,11 @@ void imprimeEleitos (vector<Candidato> listaCandidatos) {
     cout << "\n";
 }
 
-bool comparaCandidatos(Candidato candidato1, Candidato candidato2){
+bool comparaCandidatos(const Candidato& candidato1, const Candidato& candidato2){
     return candidato1.getVotosNominais() > candidato2.getVotosNominais();
 }
 
-void ImprimeCandidatosMaisVotados( vector<Candidato> listaCandidatos, int nvagas) {
+void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, const int& nvagas) {
     cout << "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):" << '\n';
         
     int i;
