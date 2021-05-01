@@ -42,7 +42,7 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
 Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
 	int i;
-    for(i = 0; i < ListaPartidos.size(); i++) {
+    for(i = 0; i < (int) ListaPartidos.size(); i++) {
 		if (ListaPartidos[i].getNumero() == num) {
 			return ListaPartidos[i];
 		}
@@ -52,7 +52,7 @@ Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
 
 void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partido>& ListaPartidos){
     int i;
-	for(i = 0; i < ListaCandidatos.size(); i++) {
+	for(i = 0; i < (int) ListaCandidatos.size(); i++) {
         //Pega o candidato i e salva o nome do partido ao qual ele pertence
 		ListaCandidatos[i].setNomePartido (getPartidoByNum(ListaPartidos, ListaCandidatos[i].getNumeroPartido()).getSigla());
 	}
@@ -109,7 +109,7 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path){
 void imprimeEleitos (const vector<Candidato>& listaCandidatos) {
 	int i, n=1;
 	cout << "Vereadores eleitos:" << "\n";
-	for(i=0; i < listaCandidatos.size(); i++) {
+	for(i=0; i < (int) listaCandidatos.size(); i++) {
 		if (listaCandidatos[i].foiEleito()) {
 			cout << n << " - " << listaCandidatos[i].toString() << '\n';
             n++;
@@ -127,7 +127,7 @@ void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, con
         
     int i;
     for (i=0; i<nvagas; i++){
-        cout << (i+1) << " - " << listaCandidatos[i].toString() << '\n';
+        cout << (i+1) << " - " << listaCandidatos[i] << '\n';
     }
 }
 

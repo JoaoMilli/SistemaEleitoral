@@ -55,3 +55,9 @@ string Candidato::toString() const{
     }
     return texto.str();
 }
+
+/*Override do operador <<*/
+/*Envia o .toString() para o outstream*/
+ostream& operator<<(ostream &out, const Candidato& candidato){
+    return out << candidato.toString();
+}

@@ -83,7 +83,10 @@ public:
 	/*Saída: string contendo dados importantes do candidato(string)*/
     string toString() const;
 
-    
+    /*Override do operador <<*/
+    /*Envia o .toString() para o outstream*/
+    friend ostream& operator<<(ostream &out, const Candidato& candidato);
+
     ~Candidato(){}
 };
 

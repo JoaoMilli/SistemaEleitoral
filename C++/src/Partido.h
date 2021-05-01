@@ -66,7 +66,11 @@ public:
 	/*Método cria uma string que representa o partido*/
 	/*Entrada: nada*/
 	/*Saída: string contendo dados importantes do Partido(string)*/
-    string toString();
+    string toString() const;
+	
+	/*Override do operador <<*/
+    /*Envia o .toString() para o outstream*/
+	friend ostream& operator<<(ostream &out, const Partido& partido);
 
     ~Partido(){}
 };

@@ -50,7 +50,7 @@ void Partido::setEleitos(const vector<Candidato>& lista){
 /*Método cria uma string que representa o partido*/
 /*Entrada: nada*/
 /*Saída: string contendo dados importantes do Partido(string)*/
-string Partido::toString() {
+string Partido::toString() const {
     int totalVotos = this->getVotos() + this->getVotosNominais();
     ostringstream texto;
     texto << this->sigla_partido << " - " << this->numero_partido << ", " << totalVotos;
@@ -72,4 +72,10 @@ string Partido::toString() {
         texto << " candidatos eleitos\n";
     } 
     return texto.str();
+}
+
+/*Override do operador <<*/
+/*Envia o .toString() para o outstream*/
+ostream& operator<<(ostream &out, const Partido& partido){
+    return out << partido.toString();
 }
