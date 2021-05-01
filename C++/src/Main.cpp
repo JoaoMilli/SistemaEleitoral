@@ -96,7 +96,7 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
         getline(file, numero_partido);
 
         //Trata a data de nascimento para definir a idade
-        if(Data::validDate(s_data_nasc, Data::DATE_FORMAT_PT_BR_SHORT)){
+        if(Data::validDate(s_data_nasc)){
             data_nascimento = Data(s_data_nasc);
         } else {
             cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
@@ -154,7 +154,7 @@ int main(int argc, char** argv){
     int nvagas = 0;
 
     //Cria objeto com a data da eleição:
-    if(Data::validDate(argv[3], Data::DATE_FORMAT_PT_BR_SHORT)){
+    if(Data::validDate(argv[3])){
         Data dataEleicao(argv[3]);
         nvagas = getDadosCandidatos(ListaCandidatos, argv[1], dataEleicao);
     } else {

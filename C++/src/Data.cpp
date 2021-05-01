@@ -6,7 +6,7 @@ using namespace std;
 string Data::DATE_FORMAT_PT_BR_SHORT = "%d/%m/%Y";
 
 Data::Data (const string& data) {
-    if(Data::validDate(data, DATE_FORMAT_PT_BR_SHORT)){
+    if(Data::validDate(data)){
         sscanf(data.c_str(), "%d/%d/%d", &this->dia, &this->mes, &this->ano);
     } else {
         cout << "Erro! Data inválida" << endl;
@@ -17,9 +17,11 @@ Data::Data (/* Construtor padrão */){}
 
 Data::~Data(){}
 
-bool Data::validDate(const string& str, const string& format) {
+/*Verifica se a string passada é uma data válida. Utiliza format DATE_FORMAT_PT_BR_SHORT*/
+bool Data::validDate(const string& str) {
+	//Lógica feita originalmente pelo professor Vitor Souza
 	struct tm tm;
-	return strptime(str.c_str(), format.c_str(), &tm);
+	return strptime(str.c_str(), DATE_FORMAT_PT_BR_SHORT.c_str(), &tm);
 }
 
 /*Método que retorna o número de anos passados entre datas (int)*/

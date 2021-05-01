@@ -36,8 +36,8 @@ public:
 
 
 
-    /* Verifies if a string contains a valid date according to a format. */
-    static bool validDate(const string& str, const string& format);
+    /*Verifica se a string passada é uma data válida. Utiliza format DATE_FORMAT_PT_BR_SHORT*/
+    static bool validDate(const string& str);
 
     /*Método que retorna o número de anos passados entre datas (int)*/
 	/*Entradas: Data de referência(Data)*/
