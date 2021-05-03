@@ -29,7 +29,7 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
         getline(file, votos_legenda, ',');
         getline(file, nome_partido, ',');
-        getline(file, sigla_partido, '\r');
+        getline(file, sigla_partido, '\n');
 
 
         Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
@@ -180,6 +180,52 @@ void ImprimePartidos(vector<Partido>& listaPartidos){
     }
 }
 
+
+bool comparePartido(Partido a, Partido b){
+    //Colocar os partidos sem candidatos válidos em posições menores
+    if(a.getNCandidatos() == 0 && b.getNCandidatos() == 0) return false;
+    if(a.getNCandidatos() == 0) return true;
+    if(b.getNCandidatos() == 0) return false;
+
+    //Compara qual partido tem um candidato com mais votos
+    if(a.getmaisVotado().getVotosNominais() > b.getmaisVotado().getVotosNominais()) return true;
+    if(a.getmaisVotado().getVotosNominais() < b.getmaisVotado().getVotosNominais()) return false;
+    //Se a quantidade de votos nominais no mais votado forem iguais nos dois partidos verifica o com menor número partidário
+    if(a.getNumero() < b.getNumero()) return true;
+    else return false;
+}
+
+void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
+    sort(listaPartidos.begin(), listaPartidos.end(), comparePartido);
+    cout << "\nPrimeiro e último colocados de cada partido:" << '\n';
+    int i, n = 1;
+    for (i=0; i < (int) listaPartidos.size(); i++){
+        Partido partido = listaPartidos[i];
+        if (partido.getNCandidatos() != 0) {
+
+            Candidato maisVotado = partido.getmaisVotado();
+            Candidato menosVotado = partido.getmenosVotado();
+
+            if (maisVotado.getVotosNominais() <= 1 && menosVotado.getVotosNominais() <= 1){
+                cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " <<  maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() + ", " << maisVotado.getVotosNominais() << " voto) / " << menosVotado.getNomeUrna() << " (" + menosVotado.getNumero() << ", " << menosVotado.getVotosNominais() << " voto)" << '\n';
+                n++;
+            }
+            else if (maisVotado.getVotosNominais() <= 1){
+                cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " <<  maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() + ", " << maisVotado.getVotosNominais() << " voto) / " << menosVotado.getNomeUrna() << " (" + menosVotado.getNumero() << ", " << menosVotado.getVotosNominais() << " voto)" << '\n';                    
+                n++;
+            }
+            else if (menosVotado.getVotosNominais() <= 1){
+                cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " <<  maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() + ", " << maisVotado.getVotosNominais() << " voto) / " << menosVotado.getNomeUrna() << " (" + menosVotado.getNumero() << ", " << menosVotado.getVotosNominais() << " voto)" << '\n';
+                n++;
+            }
+            else {
+                cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " <<  maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() + ", " << maisVotado.getVotosNominais() << " voto) / " << menosVotado.getNomeUrna() << " (" + menosVotado.getNumero() << ", " << menosVotado.getVotosNominais() << " voto)" << '\n';
+                n++;
+            }
+        }
+    }
+}
+
 int main(int argc, char** argv){
 
     //Verifica se os parâmetros de entrada foram inseridos corretamente
@@ -214,4 +260,5 @@ int main(int argc, char** argv){
     ImprimeCandidatosPrejudicados(ListaCandidatos, nvagas);
     ImprimeCandidatosBeneficiados(ListaCandidatos, nvagas);
     ImprimePartidos(ListaPartidos);
+    ImprimePrimeiroeUltimo(ListaPartidos);
 }

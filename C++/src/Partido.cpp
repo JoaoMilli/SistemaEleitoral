@@ -10,6 +10,7 @@ Partido::Partido(const int& num, const string& nome, const string& sigla, const 
     this->votos_legenda = votos;
     this->votos_nominais = 0;
     this->n_eleitos = 0;
+    this->n_candidatos = 0;
 }
 
 
@@ -21,6 +22,7 @@ void Partido::setEleitos(const vector<Candidato>& lista){
     for(i=0; i < (int) lista.size(); i++){
         if (lista[i].getNumeroPartido() == this->numero_partido){
             if (lista[i].foiEleito()) this->n_eleitos++;
+            this->n_candidatos++;
             if (n == 0){
                 this->mais_votado = lista[i];
                 this->menos_votado = lista[i];

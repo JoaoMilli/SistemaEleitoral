@@ -13,6 +13,7 @@ private:
 	int votos_legenda;
 	string nome_partido;
 	string sigla_partido;
+	int n_candidatos;
 	int n_eleitos;
 	int votos_nominais;
 	Candidato mais_votado;
@@ -31,6 +32,10 @@ public:
 	
 	const int& getVotos() const{
 		return this->votos_legenda;
+	}
+
+	const int& getNCandidatos() const{
+		return this->n_candidatos;
 	}
 	
 	const int& getNEleitos() const{
