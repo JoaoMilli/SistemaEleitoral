@@ -35,37 +35,37 @@ public:
     Candidato(/* Construtor padrão */);
 	
 	/*Getters dos atributos. Implementados aqui para serem conisderados inline*/
-	string getNomePartido() const{
+	const string& getNomePartido() const{
         return this->nomePartido;
     }
-    int getNumero() const{
+    const int& getNumero() const{
         return this->numero;
     }
-	int getVotosNominais() const{
+	const int& getVotosNominais() const{
         return this->votosNominais;
     }
-	string getSituacao() const{
+	const string& getSituacao() const{
         return this->situacao;
     }
-	string getNome() const{
+	const string& getNome() const{
         return this->nome;
     }
-	string getNomeUrna() const{
+	const string& getNomeUrna() const{
         return this->nomeUrna;
     }
-	string getSexo() const{
+	const string& getSexo() const{
         return this->sexo;
     }
-	Data getDataNasc() const{
+	const Data& getDataNasc() const{
         return this->dataNasc;
     }
-    int getIdade() const{
+    const int& getIdade() const{
         return this->idade;
     }
-	string getDestinoVoto() const{
+	const string& getDestinoVoto() const{
         return this->destinoVoto;
     }
-	int getNumeroPartido() const{
+	const int& getNumeroPartido() const{
         return this->numeroPartido;
     }
 

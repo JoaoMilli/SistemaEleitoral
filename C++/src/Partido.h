@@ -7,8 +7,7 @@
 #include <iostream>
 
 
-class Partido
-{
+class Partido {
 private:
     int numero_partido;
 	int votos_legenda;
@@ -26,35 +25,35 @@ public:
 	
 	/*Getters*/
 
-	int getNumero() const{
+	const int& getNumero() const{
 		return this->numero_partido;
 	}
 	
-	int getVotos() const{
+	const int& getVotos() const{
 		return this->votos_legenda;
 	}
 	
-	int getNEleitos() const{
+	const int& getNEleitos() const{
 		return this->n_eleitos;
 	}
 
-	string getNome() const{
+	const string& getNome() const{
 		return this->nome_partido;
 	}
 	
-	string getSigla() const{
+	const string& getSigla() const{
 		return this->sigla_partido;
 	}
 
-	int getVotosNominais() const{
+	const int& getVotosNominais() const{
 		return this->votos_nominais;
 	}
 
-	Candidato getmaisVotado() const{
+	const Candidato& getmaisVotado() const{
 		return this->mais_votado;
 	}
 
-	Candidato getmenosVotado() const{
+	const Candidato& getmenosVotado() const{
 		return this->menos_votado;
 	}
 

@@ -22,15 +22,15 @@ public:
     Data (/* Construtor padrão */);
 
     /*Getters*/
-	int getAno() const{
+	const int& getAno() const{
 		return this->ano;
 	}
 	
-	int getMes() const{
+	const int& getMes() const{
 		return this->mes;
 	}
 	
-	int getDia() const{
+	const int& getDia() const{
 		return this->dia;
 	}
 
