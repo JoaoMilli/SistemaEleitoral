@@ -41,7 +41,7 @@ int Data::anosPassados(const Data& dataDepois) const{
 /*Método compareTo() da interface Comparable, compara dois Objetos Data*/
 /*Entrada: O Objeto Data a ser comparado(Data)*/
 /*Saída: 1 caso a data representada pelo objeto for posterior à data comparada, -1 caso seja anterior e 0 caso as datas sejam iguais*/
-int Data::compareTo(const Data& outraData){
+int Data::compareTo(const Data& outraData) const{
 	if(this->ano > outraData.getAno()){ //Vem depois
 		return 1;
 	} else if (this->ano < outraData.getAno()){ //Vem antes da outra data

@@ -47,7 +47,7 @@ public:
     /*Método compareTo() da interface Comparable, compara dois Objetos Data*/
 	/*Entrada: O Objeto Data a ser comparado(Data)*/
 	/*Saída: 1 caso a data representada pelo objeto for posterior à data comparada, -1 caso seja anterior e 0 caso as datas sejam iguais*/
-    int compareTo(const Data& outraData);
+    int compareTo(const Data& outraData) const;
 
     ~Data();
 };
