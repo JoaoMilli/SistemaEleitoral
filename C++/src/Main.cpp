@@ -29,7 +29,7 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
         getline(file, votos_legenda, ',');
         getline(file, nome_partido, ',');
-        getline(file, sigla_partido, '\n');
+        getline(file, sigla_partido, '\r');
 
 
         Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
