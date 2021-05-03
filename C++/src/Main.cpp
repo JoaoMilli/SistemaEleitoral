@@ -141,6 +141,28 @@ void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, con
     }
 }
 
+void ImprimeCandidatosPrejudicados(const vector<Candidato>& listaCandidatos, int nvagas) {
+    cout << "\nTeriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)" << '\n';
+        
+    int i;
+    for (i=0; i<nvagas; i++){
+        Candidato candidato = listaCandidatos[i];
+        if(!candidato.foiEleito()) 
+            cout << i+1 << " - " << candidato << '\n';
+    }
+}
+
+void ImprimeCandidatosBeneficiados(const vector<Candidato>& listaCandidatos, int nvagas) {
+    cout << "\nEleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)" << '\n';
+        
+    int i;
+    for (i=nvagas; i < (int) listaCandidatos.size(); i++){
+        Candidato candidato = listaCandidatos[i];
+        if(candidato.foiEleito()) 
+            cout << i+1 << " - " << candidato << '\n';
+    }
+}
+
 int main(int argc, char** argv){
 
     //Verifica se os parâmetros de entrada foram inseridos corretamente
@@ -170,4 +192,6 @@ int main(int argc, char** argv){
     cout << "Número de vagas: " << nvagas << "\n\n";
     imprimeEleitos (ListaCandidatos);
     ImprimeCandidatosMaisVotados(ListaCandidatos, nvagas);
+    ImprimeCandidatosPrejudicados(ListaCandidatos, nvagas);
+    ImprimeCandidatosBeneficiados(ListaCandidatos, nvagas);
 }
