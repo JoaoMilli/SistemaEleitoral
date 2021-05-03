@@ -163,6 +163,23 @@ void ImprimeCandidatosBeneficiados(const vector<Candidato>& listaCandidatos, int
     }
 }
 
+void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>& lista){
+	int i;
+	for(i=0; i < (int) listaPartidos.size(); i++){			
+		listaPartidos[i].setEleitos(lista);
+	}
+}
+
+void ImprimePartidos(vector<Partido>& listaPartidos){
+    sort(listaPartidos.begin(), listaPartidos.end());
+    cout << "\nVotação dos partidos e número de candidatos eleitos:" << '\n';
+    int i, n = 1;
+    for (i=0; i < (int) listaPartidos.size(); i++){
+        cout << n << " - " << listaPartidos[i] << '\n';
+        n++;
+    }
+}
+
 int main(int argc, char** argv){
 
     //Verifica se os parâmetros de entrada foram inseridos corretamente
@@ -187,6 +204,8 @@ int main(int argc, char** argv){
     getDadosPartidos(ListaPartidos, argv[2]);    
     
     defineNomesPartidos(ListaCandidatos, ListaPartidos);
+    setPartidosEleitos(ListaPartidos, ListaCandidatos);
+
     sort(ListaCandidatos.begin(), ListaCandidatos.end());
 
     cout << "Número de vagas: " << nvagas << "\n\n";
@@ -194,4 +213,5 @@ int main(int argc, char** argv){
     ImprimeCandidatosMaisVotados(ListaCandidatos, nvagas);
     ImprimeCandidatosPrejudicados(ListaCandidatos, nvagas);
     ImprimeCandidatosBeneficiados(ListaCandidatos, nvagas);
+    ImprimePartidos(ListaPartidos);
 }

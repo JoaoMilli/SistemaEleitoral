@@ -71,6 +71,8 @@ public:
     /*Envia o .toString() para o outstream*/
 	friend ostream& operator<<(ostream &out, const Partido& partido);
 
+	bool operator<(const Partido& partido) const;
+
     ~Partido(){}
 };
 

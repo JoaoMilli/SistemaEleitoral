@@ -67,9 +67,9 @@ string Partido::toString() const {
     }
     texto << this->votos_legenda << " de legenda), " << this->n_eleitos;
     if (this->getNEleitos() <= 1){
-        texto << " candidato eleito\n";
+        texto << " candidato eleito";
     } else {
-        texto << " candidatos eleitos\n";
+        texto << " candidatos eleitos";
     } 
     return texto.str();
 }
@@ -78,4 +78,22 @@ string Partido::toString() const {
 /*Envia o .toString() para o outstream*/
 ostream& operator<<(ostream &out, const Partido& partido){
     return out << partido.toString();
+}
+
+
+bool Partido::operator<(const Partido& partido) const{
+
+	if (this -> getVotos() + this -> getVotosNominais() > partido.getVotos() + partido.getVotosNominais()){
+		return true;
+	}
+	else if (this -> getVotos() + this -> getVotosNominais() < partido.getVotos() + partido.getVotosNominais()){
+		return false;
+	} 
+
+	else if (this -> getNumero() < partido.getNumero()){
+		return true;
+	}
+	else {
+		return false;
+	}	
 }

@@ -12,3 +12,7 @@ C++/src/.~lock.candidatos.csv#
 *.o
 C++/src/vereadores
 C++/src/vereadores
+C++/src/vereadores
+C++/src/partidos.csv
+*.csv
+C++/src/vereadores
