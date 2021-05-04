@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <locale>
 
 #include "Data.h"
 #include "Partido.h"
@@ -40,7 +41,6 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
     file.close();
 }    
 
-
 Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
 	int i;
     for(i = 0; i < (int) ListaPartidos.size(); i++) {
@@ -68,7 +68,6 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
         std::cout << "Erro: Não foi possível abrir o arquivo" << "\n";
         return 0;
     }
-
 
     string numero;
     string votos_nominais;
@@ -102,7 +101,7 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
             cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
         }
         //encontra a quantos anos de diferença entre as datas (idade)
-        idade = dataEleicao.anosPassados(data_nascimento);        
+        idade = data_nascimento.anosPassados(dataEleicao);        
         
 
         if(!destino_voto.compare("Válido")){
@@ -119,18 +118,19 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
 }
 
 
+///////////////////////////
+
 void imprimeEleitos (const vector<Candidato>& listaCandidatos) {
 	int i, n=1;
-	cout << "Vereadores eleitos:" << "\n";
+	cout << "Vereadores eleitos:" << endl;
 	for(i=0; i < (int) listaCandidatos.size(); i++) {
 		if (listaCandidatos[i].foiEleito()) {
-			cout << n << " - " << listaCandidatos[i].toString() << '\n';
+			cout << n << " - " << listaCandidatos[i] << endl;
             n++;
 		}
 	}
-    cout << "\n";
+    cout << endl;
 }
-
 
 void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, const int& nvagas) {
     cout << "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):" << '\n';
@@ -180,8 +180,7 @@ void ImprimePartidos(vector<Partido>& listaPartidos){
     }
 }
 
-
-bool comparePartido(Partido a, Partido b){
+bool comparePartido( Partido& a,  Partido& b){
     //Colocar os partidos sem candidatos válidos em posições menores
     if(a.getNCandidatos() == 0 && b.getNCandidatos() == 0) return false;
     if(a.getNCandidatos() == 0) return true;
@@ -226,7 +225,112 @@ void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
     }
 }
 
+
+/*Função que imprime a distribuição de idade dos candidatos eleitos por faixa etária*/
+/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
+/*Saída: Nada*/
+void ImprimeDistribuicaoIdade(const vector<Candidato>& ListaCandidatos){
+    cout << endl << "Eleitos, por faixa etária (na data da eleição):" << endl;
+        int nMenor30=0, n30_40=0, n40_50=0, n50_60=0, nMaiorIgual60=0;
+        float pMenor30, p30_40, p40_50, p50_60, pMaiorIgual60;
+
+        int i;
+        for (i=0; i < (int) ListaCandidatos.size(); i++){
+            Candidato candidato = ListaCandidatos[i];
+            if(candidato.foiEleito()){
+                //Verifica em qual faixa etária o candidato está incluído e incrementa o contador dela
+                if(candidato.getIdade() < 30) nMenor30++;
+                else if(candidato.getIdade() < 40) n30_40++; 
+                else if(candidato.getIdade() < 50) n40_50++;
+                else if(candidato.getIdade() < 60) n50_60++;
+                else nMaiorIgual60++;
+            }
+        }
+        //Verificar a quantidade total de candidatos
+        int numTotal = nMenor30+n30_40+n40_50+n50_60+nMaiorIgual60;
+        if(numTotal == 0){
+            //Não tem candidatos
+            pMenor30 = 0;
+            p30_40 = 0;
+            p40_50 = 0;
+            p50_60 = 0;
+            pMaiorIgual60 = 0;
+        } else {
+            //Encontrar a proporção de cada faixa etária
+            pMenor30 = 100*(float)nMenor30 / numTotal;
+            p30_40 = 100*(float)n30_40 / numTotal;
+            p40_50 = 100*(float)n40_50 / numTotal;
+            p50_60 = 100*(float)n50_60 / numTotal;
+            pMaiorIgual60 = 100*(float)nMaiorIgual60 / numTotal;
+        }
+
+        //Imprimir o resultado:
+        printf("      Idade < 30: %d (%.2f%%)\n", nMenor30, pMenor30);
+        printf("30 <= Idade < 40: %d (%.2f%%)\n", n30_40, p30_40);
+        printf("40 <= Idade < 50: %d (%.2f%%)\n", n40_50, p40_50);
+        printf("50 <= Idade < 60: %d (%.2f%%)\n", n50_60, p50_60);
+        printf("60 <= Idade     : %d (%.2f%%)\n", nMaiorIgual60, pMaiorIgual60);
+}
+
+/*Função que imprime a distribuição dos candidatos eleitos por sexo*/
+/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
+/*Saída: Nada*/
+void ImprimeDistribuicaoSexo(const vector<Candidato>& ListaCandidatos){
+    cout << endl << "Eleitos, por sexo:" << endl;
+    int nMasculino=0, nFeminino=0;
+    float pMasculino;
+
+    int i;
+    for (i=0; i < (int) ListaCandidatos.size(); i++){
+        Candidato candidato = ListaCandidatos[i];
+        if(candidato.foiEleito()){
+            //Verifica qual o sexo do candidato e incrementa o contador dele
+            if(candidato.getSexo().compare("M")) nMasculino++;
+            else nFeminino++;
+        }
+    }
+    //Encontrar a proporção de cada sexo
+    if(nMasculino+nFeminino > 0){
+        pMasculino = (float)nMasculino/(nMasculino+nFeminino);
+    } else {
+        //Caso não existam candidatos, colocar uma proporção de 50%
+        pMasculino = 0.5f;
+    }
+
+    //Imprimir o resultado:
+    printf("Feminino:  %d (%.2f%%)\n", nFeminino, (1-pMasculino)*100);
+    printf("Masculino: %d (%.2f%%)\n", nMasculino, pMasculino*100);
+}
+
+/*Função estática que imprime os votos totais válidos, nominais e de legenda e imprime sua distribuição*/
+/*Entradas: lista dos partidos (LinkedList<Partido>)*/
+/*Saída: Nada*/
+void ImprimeVotosTotais(const vector<Partido> ListaPartidos){
+    int i, votosTotais = 0, totaisNominais = 0, totaisLegenda = 0;
+    float porcentoNominal, porcentoLegenda;
+    for (i=0; i < (int)ListaPartidos.size(); i++){
+        totaisNominais += ListaPartidos[i].getVotosNominais();
+        totaisLegenda += ListaPartidos[i].getVotos();
+    }
+    votosTotais = totaisNominais + totaisLegenda;
+    if(votosTotais == 0){
+        porcentoLegenda = 0.0;
+        porcentoNominal = 0.0;
+    } else {
+        porcentoNominal = 100*((float)totaisNominais / (float)votosTotais);
+        porcentoLegenda = 100*((float)totaisLegenda / (float)votosTotais);
+    }
+
+
+    printf("\nTotal de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", 
+    votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
+}
+
+
 int main(int argc, char** argv){
+
+    //Define o formato da impressão
+    setlocale(LC_ALL, ""); //pt_BR.UTF-8
 
     //Verifica se os parâmetros de entrada foram inseridos corretamente
     if(argc != 4){
@@ -260,5 +364,8 @@ int main(int argc, char** argv){
     ImprimeCandidatosPrejudicados(ListaCandidatos, nvagas);
     ImprimeCandidatosBeneficiados(ListaCandidatos, nvagas);
     ImprimePartidos(ListaPartidos);
-    ImprimePrimeiroeUltimo(ListaPartidos);
+    //ImprimePrimeiroeUltimo(ListaPartidos);
+    ImprimeDistribuicaoIdade(ListaCandidatos);
+    ImprimeDistribuicaoSexo(ListaCandidatos);
+    ImprimeVotosTotais(ListaPartidos);
 }
