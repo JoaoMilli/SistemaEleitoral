@@ -30,18 +30,12 @@ void Partido::setEleitos(const vector<Candidato>& lista){
             }
             else if (lista[i].getVotosNominais() > this->mais_votado.getVotosNominais() 
                 || ( lista[i].getVotosNominais() == this->mais_votado.getVotosNominais() 
-                //////////////////////////////////
-                ////////////////////////////////
-                ///////////// ESSE COMPARE ESTÁ ERRADO //////////////////
-                    && lista[i].getDataNasc().compareTo(this->mais_votado.getDataNasc()) == -1)){ 
+                    && ( lista[i].getDataNasc().compareTo(this->mais_votado.getDataNasc()) == -1))){ 
                 this->mais_votado = lista[i];
             }
             else if (lista[i].getVotosNominais() < this->menos_votado.getVotosNominais()
                 || ( lista[i].getVotosNominais() == this->menos_votado.getVotosNominais() 
-                //////////////////////////////////
-                ////////////////////////////////
-                ///////////// ESSE COMPARE ESTÁ ERRADO //////////////////
-                    && lista[i].getDataNasc().compareTo(this->menos_votado.getDataNasc()) == 1 )){
+                    && ( lista[i].getDataNasc().compareTo(this->menos_votado.getDataNasc()) == 1 ))){
                 this->menos_votado = lista[i];
             }
             this->votos_nominais += lista[i].getVotosNominais();
