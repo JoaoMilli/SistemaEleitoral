@@ -42,7 +42,7 @@ $(EXECUTAVEL): $(OBJETOS)
 
 # o comando para executar deve especificar sempre como parâmetro divulga.csv	
 run: $(EXECUTAVEL)
-	@valgrind ./$(EXECUTAVEL) candidatos.csv partidos.csv 15/11/2020
+	@./$(EXECUTAVEL) candidatos.csv partidos.csv 15/11/2020
 
 # comando para limpeza
 clean: 

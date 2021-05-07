@@ -10,6 +10,26 @@
 
 using namespace std;
 
+//Função para comparar os partidos para o item 7
+bool comparePartido( Partido& a,  Partido& b){
+    //Colocar os partidos sem candidatos válidos em posições menores
+    if(a.getNCandidatos() == 0 && b.getNCandidatos() == 0) return false;
+    if(a.getNCandidatos() == 0) return true;
+    if(b.getNCandidatos() == 0) return false;
+
+    //Compara qual partido tem um candidato com mais votos
+    if(a.getmaisVotado().getVotosNominais() > b.getmaisVotado().getVotosNominais()) return true;
+    if(a.getmaisVotado().getVotosNominais() < b.getmaisVotado().getVotosNominais()) return false;
+    //Se a quantidade de votos nominais no mais votado forem iguais nos dois partidos verifica o com menor número partidário
+    if(a.getNumero() < b.getNumero()) return true;
+    else return false;
+}
+
+
+
+
+//////Lê os arquivos csv e salvam as informações nos objetos e vetores
+
 void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
     ifstream file (path);
@@ -117,10 +137,22 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
     return nvagas;
 }
 
+void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>& lista){
+	int i;
+	for(i=0; i < (int) listaPartidos.size(); i++){			
+		listaPartidos[i].setEleitos(lista);
+	}
+}
+
+
+
+
+
 
 ///////////////////////////
+// Funções para as impressões 
 
-void imprimeEleitos (const vector<Candidato>& listaCandidatos) {
+void ImprimeEleitos (const vector<Candidato>& listaCandidatos) {
 	int i, n=1;
 	cout << "Vereadores eleitos:" << endl;
 	for(i=0; i < (int) listaCandidatos.size(); i++) {
@@ -163,13 +195,6 @@ void ImprimeCandidatosBeneficiados(const vector<Candidato>& listaCandidatos, int
     }
 }
 
-void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>& lista){
-	int i;
-	for(i=0; i < (int) listaPartidos.size(); i++){			
-		listaPartidos[i].setEleitos(lista);
-	}
-}
-
 void ImprimePartidos(vector<Partido>& listaPartidos){
     sort(listaPartidos.begin(), listaPartidos.end());
     cout << "\nVotação dos partidos e número de candidatos eleitos:" << '\n';
@@ -180,22 +205,8 @@ void ImprimePartidos(vector<Partido>& listaPartidos){
     }
 }
 
-bool comparePartido( Partido& a,  Partido& b){
-    //Colocar os partidos sem candidatos válidos em posições menores
-    if(a.getNCandidatos() == 0 && b.getNCandidatos() == 0) return false;
-    if(a.getNCandidatos() == 0) return true;
-    if(b.getNCandidatos() == 0) return false;
-
-    //Compara qual partido tem um candidato com mais votos
-    if(a.getmaisVotado().getVotosNominais() > b.getmaisVotado().getVotosNominais()) return true;
-    if(a.getmaisVotado().getVotosNominais() < b.getmaisVotado().getVotosNominais()) return false;
-    //Se a quantidade de votos nominais no mais votado forem iguais nos dois partidos verifica o com menor número partidário
-    if(a.getNumero() < b.getNumero()) return true;
-    else return false;
-}
-
 void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
-    //sort(listaPartidos.begin(), listaPartidos.end(), comparePartido);
+    sort(listaPartidos.begin(), listaPartidos.end(), comparePartido);
     cout << "\nPrimeiro e último colocados de cada partido:" << '\n';
     int i, n = 1;
     for (i=0; i < (int) listaPartidos.size(); i++){
@@ -204,10 +215,6 @@ void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
 
             Candidato maisVotado = partido.getmaisVotado();
             Candidato menosVotado = partido.getmenosVotado();
-
-            //cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " 
-            //    << maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() << maisVotado.getVotosNominais() << endl;
-            //cout << "Menos Votado: " << menosVotado << endl;
 
             cout << n << " - " << partido.getSigla() << " - " << partido.getNumero() << ", " 
                 << maisVotado.getNomeUrna() << " (" << maisVotado.getNumero() << ", " << maisVotado.getVotosNominais(); 
@@ -228,7 +235,6 @@ void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
         }
     }
 }
-
 
 /*Função que imprime a distribuição de idade dos candidatos eleitos por faixa etária*/
 /*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
@@ -289,7 +295,7 @@ void ImprimeDistribuicaoSexo(const vector<Candidato>& ListaCandidatos){
         Candidato candidato = ListaCandidatos[i];
         if(candidato.foiEleito()){
             //Verifica qual o sexo do candidato e incrementa o contador dele
-            if(candidato.getSexo().compare("M")) nMasculino++;
+            if(candidato.getSexo().compare("M") == 0) nMasculino++;
             else nFeminino++;
         }
     }
@@ -326,10 +332,15 @@ void ImprimeVotosTotais(const vector<Partido> ListaPartidos){
     }
 
 
-    printf("\nTotal de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)", 
+    printf("\nTotal de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)\n\n", 
     votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
 }
 
+
+
+
+
+// Função main
 
 int main(int argc, char** argv){
 
@@ -363,7 +374,7 @@ int main(int argc, char** argv){
     sort(ListaCandidatos.begin(), ListaCandidatos.end());
 
     cout << "Número de vagas: " << nvagas << "\n\n";
-    imprimeEleitos (ListaCandidatos);
+    ImprimeEleitos (ListaCandidatos);
     ImprimeCandidatosMaisVotados(ListaCandidatos, nvagas);
     ImprimeCandidatosPrejudicados(ListaCandidatos, nvagas);
     ImprimeCandidatosBeneficiados(ListaCandidatos, nvagas);

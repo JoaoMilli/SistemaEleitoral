@@ -4,7 +4,7 @@
 TEMP_DIR=/tmp
 TEST_DIR=testes
 TEST_SCRIPT=test.sh
-BASE_DIR=$TEMP_DIR/prog3-tests-$(whoami)
+BASE_DIR=$TEMP_DIR/prog3-2020-2-tests2-$(whoami)
 SUBDIR_INPUT=in
 SUBDIR_OUTPUT=out
 
@@ -25,7 +25,7 @@ test() {
 		### COMPILATION ###
 		# Compiles the program. Uses a common base directory so output is the same.
 		cd $srcdir
-		ant compile > /dev/null 2> /dev/null
+		make > /dev/null 2> /dev/null
 		exitcode=$?
 		cd - > /dev/null
 
@@ -40,16 +40,17 @@ test() {
 				cp -f $TEST_DIR/$subdir/$SUBDIR_INPUT/* $srcdir/
 				
 				# Runs the test.
-				$TEST_DIR/$subdir/$TEST_SCRIPT "$subdir" "$dir" "$srcdir" "$TEMP_DIR" "$BASE_DIR" "$TEST_DIR/$subdir" "$SUBDIR_INPUT" "$SUBDIR_OUTPUT" "diff --ignore-all-space --ignore-blank-lines -W 300"
+				$TEST_DIR/$subdir/$TEST_SCRIPT "$subdir" "$dir" "$srcdir" "$TEMP_DIR" "$BASE_DIR" "$TEST_DIR/$subdir" "$SUBDIR_INPUT" "$SUBDIR_OUTPUT" "diff -y -W 300"
 				
 				# Cleanup (removes all input files).
 				cd $srcdir
-				ant clean > /dev/null 2> /dev/null
+				#make clean > /dev/null 2> /dev/null
+				rm *.csv *.txt 2> /dev/null
 				cd - > /dev/null
 			done
 		else
 			# Compilation returned with exit code different than 0. Something wrong happened.
-			echo "[E] Testando $dir: erro de compilação! (Ant exit code $exitcode)"
+			echo "[E] Testando $dir: erro de compilação! (Make exit code $exitcode)"
 		fi
 		
 		echo "[I] Testando $dir: pronto!"
@@ -62,7 +63,7 @@ test() {
 ## SCRIPT BEGINS HERE: ##
 #########################
 
-echo "Script de teste PROG3 - Trabalho 1"
+echo "Script de teste PROG3 2020/2 - Trabalho 2"
 echo
 
 # Creates the base folder.
