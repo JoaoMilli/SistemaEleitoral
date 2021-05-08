@@ -32,33 +32,36 @@ bool comparePartido( Partido& a,  Partido& b){
 
 void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
-    ifstream file (path);
+    try{
+        ifstream file (path);
 
-    if (!file.is_open()){
-        std::cout << "Erro: Não foi possível abrir o arquivo" << "\n";
-        return;
+        file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+        string numero_partido;
+        string votos_legenda;
+        string nome_partido;
+        string sigla_partido;
+
+        getline(file, numero_partido);
+
+        while(getline(file, numero_partido, ',')){
+
+            getline(file, votos_legenda, ',');
+            getline(file, nome_partido, ',');
+            getline(file, sigla_partido, '\n');
+
+
+            Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
+
+            ListaPartidos.push_back(partido);
+        }
+
+        file.close();
     }
-
-    string numero_partido;
-    string votos_legenda;
-    string nome_partido;
-    string sigla_partido;
-
-    getline(file, numero_partido);
-
-    while(getline(file, numero_partido, ',')){
-
-        getline(file, votos_legenda, ',');
-        getline(file, nome_partido, ',');
-        getline(file, sigla_partido, '\n');
-
-
-        Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
-
-        ListaPartidos.push_back(partido);
+    catch (std::ifstream::failure const& e){
+        std::cerr << "Erro: Não foi possível abrir o arquivo de dados dos partidos! " << e.what() << "\n";
+        exit(2);
     }
-
-    file.close();
 }    
 
 Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
@@ -81,60 +84,64 @@ void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partid
 
 int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, const Data& dataEleicao){
 
-    ifstream file (path);
-    int nvagas = 0;
 
-    if (!file.is_open()){
-        std::cout << "Erro: Não foi possível abrir o arquivo" << "\n";
-        return 0;
-    }
+    try{
 
-    string numero;
-    string votos_nominais;
-    string situacao;
-    string nome;
-    string nome_urna;
-    string sexo;
-    string s_data_nasc;
-    Data data_nascimento;
-    int idade;
-    string destino_voto;
-    string numero_partido;
+        ifstream file (path);
+        file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+        int nvagas = 0;
 
-    getline(file, numero);
+        string numero;
+        string votos_nominais;
+        string situacao;
+        string nome;
+        string nome_urna;
+        string sexo;
+        string s_data_nasc;
+        Data data_nascimento;
+        int idade;
+        string destino_voto;
+        string numero_partido;
 
-    while(getline(file, numero, ',')){
+        getline(file, numero);
 
-        getline(file, votos_nominais, ',');
-        getline(file, situacao, ',');
-        getline(file, nome, ',');
-        getline(file, nome_urna, ',');
-        getline(file, sexo, ',');
-        getline(file, s_data_nasc, ',');
-        getline(file, destino_voto, ',');
-        getline(file, numero_partido);
+        while(getline(file, numero, ',')){
 
-        //Trata a data de nascimento para definir a idade
-        if(Data::validDate(s_data_nasc)){
-            data_nascimento = Data(s_data_nasc);
-        } else {
-            cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
-        }
-        //encontra a quantos anos de diferença entre as datas (idade)
-        idade = data_nascimento.anosPassados(dataEleicao);        
-        
+            getline(file, votos_nominais, ',');
+            getline(file, situacao, ',');
+            getline(file, nome, ',');
+            getline(file, nome_urna, ',');
+            getline(file, sexo, ',');
+            getline(file, s_data_nasc, ',');
+            getline(file, destino_voto, ',');
+            getline(file, numero_partido);
 
-        if(!destino_voto.compare("Válido")){
-            Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
-            sexo, data_nascimento, idade, destino_voto, atoi(numero_partido.c_str()));
-
-            ListaCandidatos.push_back(candidato);
+            //Trata a data de nascimento para definir a idade
+            if(Data::validDate(s_data_nasc)){
+                data_nascimento = Data(s_data_nasc);
+            } else {
+                cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
+            }
+            //encontra a quantos anos de diferença entre as datas (idade)
+            idade = data_nascimento.anosPassados(dataEleicao);        
             
-            if (candidato.foiEleito()) nvagas++;
+
+            if(!destino_voto.compare("Válido")){
+                Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
+                sexo, data_nascimento, idade, destino_voto, atoi(numero_partido.c_str()));
+
+                ListaCandidatos.push_back(candidato);
+                
+                if (candidato.foiEleito()) nvagas++;
+            }
         }
+        file.close();
+        return nvagas;
     }
-    file.close();
-    return nvagas;
+    catch (std::ifstream::failure const& e){
+        std::cerr << "Erro: Não foi possível abrir o arquivo de dados dos candidatos! " << e.what() << "\n";
+        exit(1);
+    }
 }
 
 void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>& lista){
@@ -349,8 +356,7 @@ int main(int argc, char** argv){
 
     //Verifica se os parâmetros de entrada foram inseridos corretamente
     if(argc != 4){
-        cout << "Erro! É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)" << endl;
-        return 1;
+        cout << "É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)" << endl;
     }
 
     vector<Partido> ListaPartidos;
@@ -363,7 +369,7 @@ int main(int argc, char** argv){
         nvagas = getDadosCandidatos(ListaCandidatos, argv[1], dataEleicao);
     } else {
         cout << "Erro! Data da eleição passada em formato errado. O formato esperado é dd/mm/aaaa" << endl;
-        return 2;
+        exit(3);
     }
 
     getDadosPartidos(ListaPartidos, argv[2]);    
