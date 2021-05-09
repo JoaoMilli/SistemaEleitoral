@@ -1,4 +1,3 @@
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <algorithm>
@@ -7,6 +6,7 @@
 #include "Data.h"
 #include "Partido.h"
 #include "Candidato.h"
+#include "NumberUtils.h"
 
 using namespace std;
 
@@ -282,11 +282,11 @@ void ImprimeDistribuicaoIdade(const vector<Candidato>& ListaCandidatos){
         }
 
         //Imprimir o resultado:
-        printf("      Idade < 30: %d (%.2f%%)\n", nMenor30, pMenor30);
-        printf("30 <= Idade < 40: %d (%.2f%%)\n", n30_40, p30_40);
-        printf("40 <= Idade < 50: %d (%.2f%%)\n", n40_50, p40_50);
-        printf("50 <= Idade < 60: %d (%.2f%%)\n", n50_60, p50_60);
-        printf("60 <= Idade     : %d (%.2f%%)\n", nMaiorIgual60, pMaiorIgual60);
+        cout << "      Idade < 30: " << nMenor30 << " (" << formatDoubleCurrency(pMenor30, LOCALE_PT_BR) << "%)" << endl;
+        cout << "30 <= Idade < 40: " << n30_40 << " (" << formatDoubleCurrency(p30_40, LOCALE_PT_BR) << "%)" << endl;
+        cout << "40 <= Idade < 50: " << n40_50 << " (" << formatDoubleCurrency(p40_50, LOCALE_PT_BR) << "%)" << endl;
+        cout << "50 <= Idade < 60: " << n50_60 << " (" << formatDoubleCurrency(p50_60, LOCALE_PT_BR) << "%)" << endl;
+        cout << "60 <= Idade     : " << nMaiorIgual60 << " (" << formatDoubleCurrency(pMaiorIgual60, LOCALE_PT_BR) << "%)" << endl;
 }
 
 /*Função que imprime a distribuição dos candidatos eleitos por sexo*/
@@ -315,8 +315,8 @@ void ImprimeDistribuicaoSexo(const vector<Candidato>& ListaCandidatos){
     }
 
     //Imprimir o resultado:
-    printf("Feminino:  %d (%.2f%%)\n", nFeminino, (1-pMasculino)*100);
-    printf("Masculino: %d (%.2f%%)\n", nMasculino, pMasculino*100);
+    cout << "Feminino:  " << nFeminino << " (" << formatDoubleCurrency((1-pMasculino)*100, LOCALE_PT_BR) << "%)" << endl;
+    cout << "Masculino: " << nMasculino << " (" << formatDoubleCurrency(pMasculino*100, LOCALE_PT_BR) << "%)" << endl;
 }
 
 /*Função estática que imprime os votos totais válidos, nominais e de legenda e imprime sua distribuição*/
@@ -339,8 +339,9 @@ void ImprimeVotosTotais(const vector<Partido> ListaPartidos){
     }
 
 
-    printf("\nTotal de votos válidos:    %d\nTotal de votos nominais:   %d (%.2f%%)\nTotal de votos de Legenda: %d (%.2f%%)\n\n", 
-    votosTotais, totaisNominais, porcentoNominal, totaisLegenda, porcentoLegenda);
+    printf("\nTotal de votos válidos:    %d\nTotal de votos nominais:   %d (%s%%)\nTotal de votos de Legenda: %d (%s%%)\n\n", 
+        votosTotais, totaisNominais, formatDoubleCurrency(porcentoNominal, LOCALE_PT_BR).c_str(), 
+        totaisLegenda, formatDoubleCurrency(porcentoLegenda, LOCALE_PT_BR).c_str());
 }
 
 
@@ -350,10 +351,6 @@ void ImprimeVotosTotais(const vector<Partido> ListaPartidos){
 // Função main
 
 int main(int argc, char** argv){
-
-    //Define o formato da impressão
-    setlocale(LC_ALL, ""); //pt_BR.UTF-8
-
     //Verifica se os parâmetros de entrada foram inseridos corretamente
     if(argc != 4){
         cout << "É necessário passar 3 argumentos: arquivocandidatos.csv arquivopartidos.csv dataEleição (em formato dd/mm/aaaa)" << endl;
