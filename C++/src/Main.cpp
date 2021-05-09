@@ -32,10 +32,11 @@ bool comparePartido( Partido& a,  Partido& b){
 
 void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
-    try{
-        ifstream file (path);
+    ifstream file;
+    file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
 
-        file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+    try{     
+        file.open(path);
 
         string numero_partido;
         string votos_legenda;
@@ -44,16 +45,20 @@ void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
 
         getline(file, numero_partido);
 
-        while(getline(file, numero_partido, ',')){
+        while(!file.eof()){
+            try {
+                getline(file, numero_partido, ',');
+                getline(file, votos_legenda, ',');
+                getline(file, nome_partido, ',');
+                getline(file, sigla_partido, '\n');
 
-            getline(file, votos_legenda, ',');
-            getline(file, nome_partido, ',');
-            getline(file, sigla_partido, '\n');
 
+                Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
 
-            Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
-
-            ListaPartidos.push_back(partido);
+                ListaPartidos.push_back(partido);
+            } catch (std::ifstream::failure const& e){
+                //Leu a linha em branco
+            }
         }
 
         file.close();
@@ -83,12 +88,12 @@ void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partid
 }
 
 int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, const Data& dataEleicao){
-
-
+    ifstream file;
+    file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+        
     try{
-
-        ifstream file (path);
-        file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+        file.open(path);
+        
         int nvagas = 0;
 
         string numero;
@@ -105,34 +110,38 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
 
         getline(file, numero);
 
-        while(getline(file, numero, ',')){
+        while(!file.eof()){
+            try{
+                getline(file, numero, ',');
+                getline(file, votos_nominais, ',');
+                getline(file, situacao, ',');
+                getline(file, nome, ',');
+                getline(file, nome_urna, ',');
+                getline(file, sexo, ',');
+                getline(file, s_data_nasc, ',');
+                getline(file, destino_voto, ',');
+                getline(file, numero_partido);
 
-            getline(file, votos_nominais, ',');
-            getline(file, situacao, ',');
-            getline(file, nome, ',');
-            getline(file, nome_urna, ',');
-            getline(file, sexo, ',');
-            getline(file, s_data_nasc, ',');
-            getline(file, destino_voto, ',');
-            getline(file, numero_partido);
-
-            //Trata a data de nascimento para definir a idade
-            if(Data::validDate(s_data_nasc)){
-                data_nascimento = Data(s_data_nasc);
-            } else {
-                cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
-            }
-            //encontra a quantos anos de diferença entre as datas (idade)
-            idade = data_nascimento.anosPassados(dataEleicao);        
-            
-
-            if(!destino_voto.compare("Válido")){
-                Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
-                sexo, data_nascimento, idade, destino_voto, atoi(numero_partido.c_str()));
-
-                ListaCandidatos.push_back(candidato);
+                //Trata a data de nascimento para definir a idade
+                if(Data::validDate(s_data_nasc)){
+                    data_nascimento = Data(s_data_nasc);
+                } else {
+                    cout << "Erro ao manipular a data de nascimento do candidato: " << nome << endl;
+                }
+                //encontra a quantos anos de diferença entre as datas (idade)
+                idade = data_nascimento.anosPassados(dataEleicao);        
                 
-                if (candidato.foiEleito()) nvagas++;
+
+                if(!destino_voto.compare("Válido")){
+                    Candidato candidato (atoi(numero.c_str()), atoi(votos_nominais.c_str()), situacao, nome, nome_urna, 
+                    sexo, data_nascimento, idade, destino_voto, atoi(numero_partido.c_str()));
+
+                    ListaCandidatos.push_back(candidato);
+                    
+                    if (candidato.foiEleito()) nvagas++;
+                }
+            } catch (std::ifstream::failure const& e){
+                //Leu a última linha
             }
         }
         file.close();
