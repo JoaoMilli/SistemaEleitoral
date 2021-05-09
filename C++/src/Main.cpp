@@ -30,63 +30,7 @@ bool comparePartido( Partido& a,  Partido& b){
 
 //////Lê os arquivos csv e salvam as informações nos objetos e vetores
 
-void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
-
-    ifstream file;
-    file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
-
-    try{     
-        file.open(path);
-
-        string numero_partido;
-        string votos_legenda;
-        string nome_partido;
-        string sigla_partido;
-
-        getline(file, numero_partido);
-
-        while(!file.eof()){
-            try {
-                getline(file, numero_partido, ',');
-                getline(file, votos_legenda, ',');
-                getline(file, nome_partido, ',');
-                getline(file, sigla_partido, '\n');
-
-
-                Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
-
-                ListaPartidos.push_back(partido);
-            } catch (std::ifstream::failure const& e){
-                //Leu a linha em branco
-            }
-        }
-
-        file.close();
-    }
-    catch (std::ifstream::failure const& e){
-        std::cerr << "Erro: Não foi possível abrir o arquivo de dados dos partidos! " << e.what() << "\n";
-        exit(2);
-    }
-}    
-
-Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
-	int i;
-    for(i = 0; i < (int) ListaPartidos.size(); i++) {
-		if (ListaPartidos[i].getNumero() == num) {
-			return ListaPartidos[i];
-		}
-	}
-    return ListaPartidos[i];
-}
-
-void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partido>& ListaPartidos){
-    int i;
-	for(i = 0; i < (int) ListaCandidatos.size(); i++) {
-        //Pega o candidato i e salva o nome do partido ao qual ele pertence
-		ListaCandidatos[i].setNomePartido (getPartidoByNum(ListaPartidos, ListaCandidatos[i].getNumeroPartido()).getSigla());
-	}
-}
-
+/*Função estática que Obtém dados dos candidatos, e os insere na lista de candidatos*/
 int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, const Data& dataEleicao){
     ifstream file;
     file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
@@ -153,6 +97,68 @@ int getDadosCandidatos(vector<Candidato>& ListaCandidatos, const string& path, c
     }
 }
 
+
+/*Função estática que Obtém dados dos Partidos e os insere na lista de partidos*/
+void getDadosPartidos(vector<Partido>& ListaPartidos, const string& path){
+
+    ifstream file;
+    file.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+    try{     
+        file.open(path);
+
+        string numero_partido;
+        string votos_legenda;
+        string nome_partido;
+        string sigla_partido;
+
+        getline(file, numero_partido);
+
+        while(!file.eof()){
+            try {
+                getline(file, numero_partido, ',');
+                getline(file, votos_legenda, ',');
+                getline(file, nome_partido, ',');
+                getline(file, sigla_partido, '\n');
+
+
+                Partido partido (atoi(numero_partido.c_str()),nome_partido, sigla_partido, atoi(votos_legenda.c_str()));
+
+                ListaPartidos.push_back(partido);
+            } catch (std::ifstream::failure const& e){
+                //Leu a linha em branco
+            }
+        }
+
+        file.close();
+    }
+    catch (std::ifstream::failure const& e){
+        std::cerr << "Erro: Não foi possível abrir o arquivo de dados dos partidos! " << e.what() << "\n";
+        exit(2);
+    }
+}    
+
+/*Função estática que retorna o partido referente ao seu número*/
+Partido getPartidoByNum(const vector<Partido>& ListaPartidos, const int& num) {
+	int i;
+    for(i = 0; i < (int) ListaPartidos.size(); i++) {
+		if (ListaPartidos[i].getNumero() == num) {
+			return ListaPartidos[i];
+		}
+	}
+    return ListaPartidos[i];
+}
+
+/*Função estática que define o nome do partido de cada candidato através do número do partido*/
+void defineNomesPartidos(vector<Candidato>& ListaCandidatos, const vector<Partido>& ListaPartidos){
+    int i;
+	for(i = 0; i < (int) ListaCandidatos.size(); i++) {
+        //Pega o candidato i e salva o nome do partido ao qual ele pertence
+		ListaCandidatos[i].setNomePartido (getPartidoByNum(ListaPartidos, ListaCandidatos[i].getNumeroPartido()).getSigla());
+	}
+}
+
+/*Função estática que adiciona o mais e menos votado de cada partido, assim como o número de votos nominais e o total de candidatos eleitos*/
 void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>& lista){
 	int i;
 	for(i=0; i < (int) listaPartidos.size(); i++){			
@@ -168,6 +174,7 @@ void setPartidosEleitos(vector<Partido>& listaPartidos, const vector<Candidato>&
 ///////////////////////////
 // Funções para as impressões 
 
+/*Função estática que imprime todos os candidatos que foram eleitos*/
 void ImprimeEleitos (const vector<Candidato>& listaCandidatos) {
 	int i, n=1;
 	cout << "Vereadores eleitos:" << endl;
@@ -180,6 +187,7 @@ void ImprimeEleitos (const vector<Candidato>& listaCandidatos) {
     cout << endl;
 }
 
+/*Função estática que imprime os candidatos mais votados em ordem decrescente de votos*/
 void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, const int& nvagas) {
     cout << "Candidatos mais votados (em ordem decrescente de votação e respeitando número de vagas):" << '\n';
         
@@ -189,6 +197,7 @@ void ImprimeCandidatosMaisVotados( const vector<Candidato>& listaCandidatos, con
     }
 }
 
+/*Função estática que imprime os candidatos não eleitos que teriam sido eleitos se a votação fosse majoritária*/
 void ImprimeCandidatosPrejudicados(const vector<Candidato>& listaCandidatos, int nvagas) {
     cout << "\nTeriam sido eleitos se a votação fosse majoritária, e não foram eleitos:\n(com sua posição no ranking de mais votados)" << '\n';
         
@@ -200,6 +209,7 @@ void ImprimeCandidatosPrejudicados(const vector<Candidato>& listaCandidatos, int
     }
 }
 
+/*Função estática que imprime os candidatos que se beneficiaram do sistema proporcional*/
 void ImprimeCandidatosBeneficiados(const vector<Candidato>& listaCandidatos, int nvagas) {
     cout << "\nEleitos, que se beneficiaram do sistema proporcional:\n(com sua posição no ranking de mais votados)" << '\n';
         
@@ -211,6 +221,7 @@ void ImprimeCandidatosBeneficiados(const vector<Candidato>& listaCandidatos, int
     }
 }
 
+/*Função estática que imprime informações dos partidos*/
 void ImprimePartidos(vector<Partido>& listaPartidos){
     sort(listaPartidos.begin(), listaPartidos.end());
     cout << "\nVotação dos partidos e número de candidatos eleitos:" << '\n';
@@ -221,6 +232,7 @@ void ImprimePartidos(vector<Partido>& listaPartidos){
     }
 }
 
+/*Função estática que imprime o primeiro e o último candidato mais votado de cada partido*/
 void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
     sort(listaPartidos.begin(), listaPartidos.end(), comparePartido);
     cout << "\nPrimeiro e último colocados de cada partido:" << '\n';
@@ -253,8 +265,6 @@ void ImprimePrimeiroeUltimo(vector<Partido>& listaPartidos){
 }
 
 /*Função que imprime a distribuição de idade dos candidatos eleitos por faixa etária*/
-/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
-/*Saída: Nada*/
 void ImprimeDistribuicaoIdade(const vector<Candidato>& ListaCandidatos){
     cout << endl << "Eleitos, por faixa etária (na data da eleição):" << endl;
         int nMenor30=0, n30_40=0, n40_50=0, n50_60=0, nMaiorIgual60=0;
@@ -299,8 +309,6 @@ void ImprimeDistribuicaoIdade(const vector<Candidato>& ListaCandidatos){
 }
 
 /*Função que imprime a distribuição dos candidatos eleitos por sexo*/
-/*Entradas: lista dos candidatos (LinkedList<Candidato>)*/
-/*Saída: Nada*/
 void ImprimeDistribuicaoSexo(const vector<Candidato>& ListaCandidatos){
     cout << endl << "Eleitos, por sexo:" << endl;
     int nMasculino=0, nFeminino=0;
@@ -329,8 +337,6 @@ void ImprimeDistribuicaoSexo(const vector<Candidato>& ListaCandidatos){
 }
 
 /*Função estática que imprime os votos totais válidos, nominais e de legenda e imprime sua distribuição*/
-/*Entradas: lista dos partidos (LinkedList<Partido>)*/
-/*Saída: Nada*/
 void ImprimeVotosTotais(const vector<Partido> ListaPartidos){
     int i, votosTotais = 0, totaisNominais = 0, totaisLegenda = 0;
     float porcentoNominal, porcentoLegenda;
